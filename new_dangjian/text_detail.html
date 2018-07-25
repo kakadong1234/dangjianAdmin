@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>六盘水党建云</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+
+    <link href="../css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+    <script src="../js/angularjs/angular.min.js"></script>
+
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl"  data-ng-init="load()">
+
+<div id="wrapper">
+
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element">
+                        <h3 style="color: white;font-size: 22px">
+                            <img src="img/login.png" style="width: 50px;height: auto">
+                            六盘水党建云
+                        </h3>
+                    </div>
+                    <div class="logo-element">
+                        党建云
+                    </div>
+                </li>
+                <li >
+                    <a href="article_home.html" target="_self"><i class="fa fa-th-large"></i> <span class="nav-label">网上讲习所</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="article_home.html" target="_self">文章管理</a></li>
+                        <li><a href="article_type.html" target="_self">文章类型</a></li>
+                        <!--<li><a href="article_comment.html" target="_self">评论管理</a></li>-->
+                    </ul>
+                </li>
+                <li >
+                    <a href="village_home.html" target="_self"><i class="fa fa-th-large"></i> <span class="nav-label">党建大数据</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="village_home.html" target="_self">党支部管理</a></li>
+                        <li><a href="ganbu_manage.html" target="_self">驻村干部管理</a></li>
+                        <li><a href="flags_piao.html" target="_self">党建地图</a></li>
+                    </ul>
+                </li>
+
+                <!-- <li>
+                    <a href="flags_piao.html" target="_self"><i class="fa fa-diamond"></i> <span class="nav-label">党建地图</span></a>
+                </li> -->
+
+                <!--<li>-->
+                <!--<a href="news_manage.html" target="_self"><i class="fa fa-diamond"></i> <span class="nav-label">党建新闻管理</span></a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a href="three_sessions.html" target="_self"><i class="fa fa-diamond"></i> <span class="nav-label">三会一课</span></a>-->
+                <!--</li>-->
+                <li class="active">
+                    <a href="table_data_tables.html#" target="_self"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">云学习中心</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <!-- <li><a href="graph_flot.html" target="_self">教学资源</a></li> -->
+                        <li><a href="examination_paper_list.html" target="_self">考试管理</a></li>
+                        <li class="active"><a href="test_manage.html" target="_self">考试题管理</a></li>
+                        <li><a href="study_credit_list.html" target="_self">在线学习学分配置</a></li>
+                        <!-- <li><a href="graph_chartjs.html" target="_self">活动开展情况</a></li> -->
+                    </ul>
+                </li>
+                <!--<li>-->
+                <!--<a href="#" target="_self"><i class="fa fa-wrench"></i> <span class="nav-label">系统管理</span><span class="fa arrow"></span></a>-->
+                <!--<ul class="nav nav-second-level collapse" >-->
+                <!--<li><a href="#" target="_self">系统配置</a></li>-->
+                <!--<li><a href="#" target="_self">权限管理</a></li>-->
+                <!--<li><a href="login.html" target="_self">退出</a></li>-->
+                <!--</ul>-->
+                <!--</li>-->
+
+            </ul>
+
+        </div>
+    </nav>
+
+    <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="text_detail.html"><i class="fa fa-bars"></i> </a>
+                    <form role="search" class="navbar-form-custom" action="#">
+                        <div class="form-group">
+                            <input type="text"  class="form-control" name="top-search" id="top-search">
+                        </div>
+                    </form>
+                </div>
+                <!--<ul class="nav navbar-top-links navbar-right">-->
+                <!--<li>-->
+                    <!--<span class="m-r-sm text-muted welcome-message">欢迎来到智慧党建系统</span>-->
+                <!--</li>-->
+                <!--<li class="dropdown">-->
+                    <!--<a class="dropdown-toggle count-info" data-toggle="dropdown" href="table_data_tables.html#">-->
+                        <!--<i class="fa fa-envelope"></i>  <span class="label label-warning">0</span>-->
+                    <!--</a>-->
+
+                    <!--&lt;!&ndash;邮件信息&ndash;&gt;-->
+                    <!--&lt;!&ndash;<ul class="dropdown-menu dropdown-messages">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="dropdown-messages-box">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<a href="profile.html" class="pull-left">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<img alt="image" class="img-circle" src="img/a7.jpg">&ndash;&gt;-->
+                    <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="media-body">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<small class="pull-right">46h ago</small>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<strong>Mike Loreipsum</strong> started following <strong>Monica Smith</strong>. <br>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<li class="divider"></li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+                    <!--&lt;!&ndash;&ndash;&gt;-->
+
+                <!--</li>-->
+                <!--<li class="dropdown">-->
+                    <!--<a class="dropdown-toggle count-info" data-toggle="dropdown" href="table_data_tables.html#">-->
+                        <!--<i class="fa fa-bell"></i>  <span class="label label-primary">0</span>-->
+                    <!--</a>-->
+
+                    <!--&lt;!&ndash;待办提示&ndash;&gt;-->
+                    <!--&lt;!&ndash;<ul class="dropdown-menu dropdown-alerts">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<a href="mailbox.html">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<i class="fa fa-envelope fa-fw"></i> You have 16 messages&ndash;&gt;-->
+                    <!--&lt;!&ndash;<span class="pull-right text-muted small">4 minutes ago</span>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<li class="divider"></li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+                <!--</li>-->
+
+
+                <!--<li>-->
+                    <!--<div class="dropdown" style="color: #888888">-->
+                        <!--<a class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="padding: 0;min-height: 0;background-color: #f3f3f4;border: none;">-->
+                            <!--系统管理员-->
+                            <!--<span class="caret"></span>-->
+                        <!--</a>-->
+                        <!--<ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="background-color:#f3f3f4 ">-->
+                            <!--<li><a href="#">我的信息</a></li>-->
+                            <!--<li><a href="login.html">退出</a></li>-->
+
+                        <!--</ul>-->
+                    <!--</div>-->
+                <!--</li>-->
+            <!--</ul>-->
+
+            </nav>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12 animated fadeInRight">
+                    <div class="mail-box-header">
+                        <div class="pull-right tooltip-demo">
+                            <a href="#" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="推荐"><i class="fa fa-thumbs-o-up"></i> 推荐</a>
+                            <a href="#" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="打印"><i class="fa fa-print"></i></a>
+                            <a href="#" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="删除"><i class="fa fa-trash-o"></i> </a>
+                        </div>
+                        <h2>
+                            <strong>大的标题</strong>
+                        </h2>
+                        <div class="mail-tools tooltip-demo m-t-md">
+
+
+                            <h3>
+                                <span class="font-noraml"></span>小的标题，标题标题标题标题标题标题
+                            </h3>
+                            <h5>
+                                <span class="pull-right font-noraml">2018-05-02 09:54</span>
+                                <span class="font-noraml">编写人: </span>某某某
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="mail-box">
+
+
+                        <div class="mail-body">
+                            <p>
+                                学习进行时】五四青年节和北京大学建校120周年校庆日即将来临之际，习近平总书记来到北京大学考察，同师生座谈并发表重要讲话，对如何办好中国特色世界一流大学作了深刻论述，对广大青年提出殷切期望。新华社《学习进行时》原创品牌栏目“讲习所”今天推出文章，为您解读。
+
+                                　　五四青年节和北京大学建校120周年校庆日即将来临之际，习近平总书记来到北京大学考察，这是4年来他第二次考察北大。2014年5月4日考察北大时，他深情勉励学子们努力践行社会主义核心价值观。时隔4年，总书记再次来北大，热情洋溢地与师生们交流，并且发表了重要讲话。这次总书记都讲了什么？对师生们都提了什么要求？
+                            </p>
+                            <p>
+                                办世界一流大学，要抓根本任务
+
+                                　　党的十九大提出，要“加快一流大学和一流学科建设，实现高等教育内涵式发展”。新时代，什么是办世界一流大学的根本任务？在北京大学师生座谈会上，习近平作出了明确的回答，那就是“培养社会主义建设者和接班人”。
+
+                                　　他说，近代以来我国历史告诉我们，只有社会主义才能救中国，只有中国特色社会主义才能发展中国，才能实现中华民族伟大复兴。坚持好、发展好中国特色社会主义，把我国建设成为社会主义现代化强国，是一项长期任务，需要一代又一代人接续奋斗。
+
+                                　　在3月举行的十三届全国人大第一次会议上，习近平就指出：“中国人民的特质、禀赋不仅铸就了绵延几千年发展至今的中华文明，而且深刻影响着当代中国发展进步，深刻影响着当代中国人的精神世界。”习近平强调中国人民具有“伟大创造精神、伟大奋斗精神、伟大团结精神、伟大梦想精神”。在北大师生座谈会上，习近平再次提出这四个“伟大精神”，他说，这种伟大精神是一代一代中华儿女创造和积淀出来的，也需要一代一代传承下去。
+
+                                　　传承伟大精神，必须靠教育。
+
+                                　　教育兴则国家兴，教育强则国家强。高等教育是一个国家发展水平和发展潜力的重要标志。习近平强调，今天，党和国家事业发展对高等教育的需要，对科学知识和优秀人才的需要，比以往任何时候都更为迫切。
+
+                                　　高校只有抓住培养社会主义建设者和接班人这个根本任务才能办好，才能办出中国特色世界一流大学。
+                            </p>
+                            <p>
+                                办世界一流大学，要抓好三项基础
+
+                                　　如何办中国特色世界一流大学？习近平强调，要抓好三项基础性工作，即坚持办学正确政治方向、建设高素质教师队伍、形成高水平人才培养体系。
+
+                                　　——坚持办学正确政治方向
+
+                                　　“大学之道，在明明德，在亲民，在止于至善。”古今中外，每个国家都是按照自己的政治要求来培养人的。马克思主义是我们立党立国的根本指导思想，也是我国大学最鲜亮的底色。习近平对此提出3个“要”：要抓好马克思主义理论教育；要坚持不懈培育和弘扬社会主义核心价值观；要把中国特色社会主义道路自信、理论自信、制度自信、文化自信转化为办好中国特色世界一流大学的自信。
+
+                                　　——建设高素质教师队伍
+
+                                　　“师者，人之模范也。”人才培养，关键在教师。教师队伍素质直接决定着大学办学能力和水平。如何做一名好老师？习近平再次强调了他2014年教师节时提出的4点要求，即：要有理想信念、有道德情操、有扎实学识、有仁爱之心。
+
+                                　　——形成高水平人才培养体系
+
+                                　　要形成高水平人才培养体系。学生在大学里学什么、能学到什么、学得怎么样，同大学人才培养体系密切相关。人才培养体系怎样建设？
+
+                                　　习近平指出：“人才培养体系必须立足于培养什么人、怎样培养人这个根本问题来建设，可以借鉴国外有益做法，但必须扎根中国大地办大学。”他强调，人才培养体系涉及学科体系、教学体系、教材体系、管理体系等，而贯通其中的是思想政治工作体系。
+
+                                　　习近平强调，要坚持党对高校的领导，坚持社会主义办学方向，把我们的特色和优势有效转化为培养社会主义建设者和接班人的能力。
+                            </p>
+                        </div>
+                        <div class="mail-attachment">
+                            <p>
+                                <span><i class="fa fa-paperclip"></i> 2 个附件 - </span>
+                                <a href="#">全部下载</a>
+                                |
+                                <a href="#">查看所有图片</a>
+                            </p>
+
+                            <div class="attachment">
+                                <div class="file-box">
+                                    <div class="file">
+                                        <a href="#">
+                                            <span class="corner"></span>
+
+                                            <div class="icon">
+                                                <i class="fa fa-file"></i>
+                                            </div>
+                                            <div class="file-name">
+                                                文件名称
+                                                <br/>
+                                                <small>提交时间</small>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                </div>
+                                <div class="file-box">
+                                    <div class="file">
+                                        <a href="#">
+                                            <span class="corner"></span>
+
+                                            <div class="image">
+                                                <img alt="image" class="img-responsive" src="img/p1.jpg">
+                                            </div>
+                                            <div class="file-name">
+                                                文件名称
+                                                <br/>
+                                                <small>提交时间</small>
+                                            </div>
+                                        </a>
+
+                                    </div>
+                                </div>
+                                <div class="file-box">
+                                    <div class="file">
+                                        <a href="#">
+                                            <span class="corner"></span>
+
+                                            <div class="image">
+                                                <img alt="image" class="img-responsive" src="img/p2.jpg">
+                                            </div>
+                                            <div class="file-name">
+                                                文件名称
+                                                <br/>
+                                                <small>提交时间</small>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="mail-body text-right tooltip-demo">
+                            <a class="btn btn-sm btn-white" href="text_detail.html"><i class="fa fa-thumbs-o-up"></i> 推荐</a>
+                            <a class="btn btn-sm btn-white" href="text_detail.html"><i class="fa fa-share-alt"></i> 分享</a>
+                            <button title="" data-placement="top" data-toggle="tooltip" type="button" data-original-title="Print" class="btn btn-sm btn-white"><i class="fa fa-print"></i> 打印</button>
+                            <button title="" data-placement="top" data-toggle="tooltip" data-original-title="Trash" class="btn btn-sm btn-white"><i class="fa fa-trash-o"></i> 删除</button>
+                        </div>
+                        <div class="clearfix"></div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <!--<div class="pull-right">-->
+            <!--10GB of <strong>250GB</strong> Free.-->
+            <!--</div>-->
+            <!--<div>-->
+            <!--<strong>Copyright</strong> Example Company &copy; 2014-2015-->
+            <!--</div>-->
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Mainly scripts -->
+<script src="../js/jquery-2.1.1.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="../js/inspinia.js"></script>
+<script src="../js/plugins/pace/pace.min.js"></script>
+
+<!-- iCheck -->
+<script src="../js/plugins/iCheck/icheck.min.js"></script>
+
+<script rel="stylesheet" src="js/mytxt.js"></script>
+<script>
+    function showPreview(source) {
+        var arrs = $(source).val().split('\\'); var filename=arrs[arrs.length-1]; $(".show").html(filename);
+        var file = source.files[0];
+        var total = file.size; if(window.FileReader) {
+            var fr = new FileReader();
+            fr.onprogress = function(e) { $(".progress1").show();
+                $("#Progress").val((e.loaded/total)*100) };
+            fr.onabort=function () {
+            };
+            fr.onerror=function () {
+            };
+            fr.onload=function () { $(".progress1").hide();
+            };
+            fr.readAsDataURL(file);
+        }
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>河长管理</title>
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon" />
+    <!-- For iPhone -->
+    <link rel="apple-touch-icon-precomposed" href="assets/images/apple-touch-icon-57-precomposed.png">
+    <!-- For iPhone 4 Retina display -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/apple-touch-icon-114-precomposed.png">
+    <!-- For iPad -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/apple-touch-icon-72-precomposed.png">
+    <!-- For iPad Retina display -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/apple-touch-icon-144-precomposed.png">
+
+    <!-- CORE CSS FRAMEWORK - START -->
+    <link href="assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/plugins/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/fonts/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/animate.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/plugins/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" type="text/css" />
+    <!-- CORE CSS FRAMEWORK - END -->
+
+    <!-- HEADER SCRIPTS INCLUDED ON THIS PAGE - START -->
+
+    <link href="assets/plugins/morris-chart/css/morris.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <!-- HEADER SCRIPTS INCLUDED ON THIS PAGE - END -->
+
+    <!-- CORE CSS TEMPLATE - START -->
+    <link href="tree/style.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <!-- CORE CSS TEMPLATE - END -->
+    <script src="js/angularjs/angular.min.js"></script>
+    <style>
+        .active a{ color: red}
+    </style>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl" data-ng-init="load()">
+
+<input type="checkbox" name="check"  value="1"/>复选框1
+<input type="checkbox" name="check"  value="2"/>复选框2
+<input type="checkbox" name="check"  value="3"/>复选框3
+<br/>
+<input type="checkbox" name="check"  value="4"/>复选框4
+<input type="checkbox" name="check" value="5"/>复选框5
+<input type="checkbox" name="check"  value="6"/>复选框6
+<br/>
+<input type="checkbox" name="check"  value="7"/>复选框7
+<input type="checkbox" name="check"  value="8"/>复选框8
+<input type="checkbox" name="check"  value="9"/>复选框9
+<input type="button" id="dosubmit" value="提交">
+
+<!-- CORE JS FRAMEWORK - START -->
+<script src="assets/js/jquery-1.11.2.min.js"></script>
+<script src="assets/js/jquery.easing.min.js"></script>
+<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/plugins/pace/pace.min.js"></script>
+<script src="assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script src="assets/plugins/viewport/viewportchecker.js"></script>
+<script>
+    window.jQuery || document.write('<script src="assets/js/jquery-1.11.2.min.js"><\/script>');
+</script>
+<!-- CORE JS FRAMEWORK - END -->
+
+<!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START -->
+
+<script src="assets/plugins/morris-chart/js/raphael-min.js"></script>
+<script src="assets/plugins/morris-chart/js/morris.min.js"></script>
+<script src="assets/js/chart-morris.js"></script>
+<!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
+
+<!-- CORE TEMPLATE JS - START -->
+<script src="assets/js/scripts.js"></script>
+
+<script type="text/javascript">
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl',
+        function($scope, $http) {
+            $('#dosubmit').click(function(){
+                var checkID = [];//定义一个空数组
+
+                $("input[name='check']:checked").each(function(i){//把所有被选中的复选框的值存入数组
+                    checkID[i] =$(this).val();
+                });
+                console.log(checkID)
+                //用Ajax传递参数
+//                $.post('Ajax.php',{checkID:checkID},function(json){
+//
+//                },'json')
+            })
+        });
+
+</script>
+</body>
+</html>

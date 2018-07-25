@@ -1,0 +1,49 @@
+
+
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><title>Upload File</title></head>
+<script src="../js/jquery-2.1.1.js"></script>
+<body>
+<form  enctype="multipart/form-data" method='post' id="form1">
+    <input type='file' name='file'   onchange="upload()"/> <p>
+    <!--<input type="button" onclick="upload()">-->
+</form>
+
+
+
+<script>
+
+    function upload() {
+        var form = document.getElementById('form1'),
+            formData = new FormData(form);
+        $.ajax({
+            url:"https://dangjain.ishoubei.com/upload",
+            type:"post",
+            data:formData,
+            processData:false,
+            contentType:false,
+            success:function(res){
+                console.log(res)
+                if(res){
+                    alert("上传成功！");
+                }
+
+            },
+            error:function(err){
+                alert("网络连接失败,稍后重试",err);
+            }
+
+        })
+
+
+
+    }
+
+
+
+
+
+</script>
+</body>
+</html>

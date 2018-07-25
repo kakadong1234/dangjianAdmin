@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>六盘水党建云</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <script src="../js/angularjs/angular.min.js"></script>
+    <link rel="stylesheet" href="../css/jedate.css">
+    <script src="../js/jedate.js"></script>
+
+
+
+    <script language="JavaScript" src="https://g.alicdn.com/dingding/open-develop/1.9.0/dingtalk.js"></script>
+    <style>
+        .modal-body{
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl"  data-ng-init="load()">
+
+<div id="wrapper">
+
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element">
+                        <h3 style="color: white;font-size: 22px">
+                            <img src="img/login.png" style="width: 50px;height: auto">
+                            六盘水党建云
+                        </h3>
+                    </div>
+                    <div class="logo-element">
+                        党建云
+                    </div>
+                </li>
+                <li class="active">
+                    <a href="article_home.html" target="_self"><i class="fa fa-th-large"></i> <span class="nav-label">网上讲习所</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li class="active"><a href="article_home.html" target="_self">文章管理</a></li>
+                        <li><a href="article_type.html" target="_self">文章类型</a></li>
+                        <!--<li><a href="article_comment.html" target="_self">评论管理</a></li>-->
+                    </ul>
+                </li>
+                <li >
+                    <a href="village_home.html" target="_self"><i class="fa fa-th-large"></i> <span class="nav-label">党建大数据</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="village_home.html" target="_self">党支部管理</a></li>
+                        <li><a href="ganbu_manage.html" target="_self">驻村干部管理</a></li>
+                        <li><a href="flags_piao.html" target="_self">党建地图</a></li>
+                    </ul>
+                </li>
+
+                <!-- <li>
+                    <a href="flags_piao.html" target="_self"><i class="fa fa-diamond"></i> <span class="nav-label">党建地图</span></a>
+                </li> -->
+
+                <!--<li>-->
+                <!--<a href="news_manage.html" target="_self"><i class="fa fa-diamond"></i> <span class="nav-label">党建新闻管理</span></a>-->
+                <!--</li>-->
+                <!--<li>-->
+                <!--<a href="three_sessions.html" target="_self"><i class="fa fa-diamond"></i> <span class="nav-label">三会一课</span></a>-->
+                <!--</li>-->
+                <li>
+                    <a href="table_data_tables.html#" target="_self"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">云学习中心</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <!-- <li><a href="graph_flot.html" target="_self">教学资源</a></li> -->
+                        <li><a href="examination_paper_list.html" target="_self">考试管理</a></li>
+                        <li><a href="test_manage.html" target="_self">考试题管理</a></li>
+                        <li><a href="study_credit_list.html" target="_self">在线学习学分配置</a></li>
+                        <!-- <li><a href="graph_chartjs.html" target="_self">活动开展情况</a></li> -->
+                    </ul>
+                </li>
+                <!--<li>-->
+                <!--<a href="#" target="_self"><i class="fa fa-wrench"></i> <span class="nav-label">系统管理</span><span class="fa arrow"></span></a>-->
+                <!--<ul class="nav nav-second-level collapse" >-->
+                <!--<li><a href="#" target="_self">系统配置</a></li>-->
+                <!--<li><a href="#" target="_self">权限管理</a></li>-->
+                <!--<li><a href="login.html" target="_self">退出</a></li>-->
+                <!--</ul>-->
+                <!--</li>-->
+
+            </ul>
+
+        </div>
+    </nav>
+
+    <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="article_add.html"><i class="fa fa-bars"></i> </a>
+                    <form role="search" class="navbar-form-custom" action="#">
+                        <div class="form-group">
+                            <input type="text"  class="form-control" name="top-search" id="top-search">
+                        </div>
+                    </form>
+                </div>
+
+            </nav>
+        </div>
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>文章编写：<small>请在此编写您的文章...</small></h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+
+                            <!-----选择试题----->
+                            <form role="form"  id="form">
+                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title" id="myModalLabel">选择文章类型</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-container">
+                                                    <form id="icon_validate">
+                                                        <div class="row">
+                                                            <div class="modal-body">
+
+                                                                <div style="text-align: right">
+                                                                    <h4><input type="checkbox" name="allChecked" checked id="allChecked" ng-click="SelectAll()"/>全选/反选</h4>
+                                                                </div>
+
+                                                                <div class="form-horizontal">
+
+
+                                                                    <div class="form-group" ng-repeat="j in typelistone">
+
+                                                                        <div class="col-md-12" >
+                                                                            <h3>{{j.type_name}}</h3>
+                                                                            <ol>
+                                                                                <li ng-repeat="k in j.childs" style="font-weight: bold;font-size: 18px;">
+                                                                                    <input type="checkbox" style="float: right;width: 16px;height: 16px;" value="{{k.type_id}}"  name="check" >
+                                                                                    <small>{{k.type_name}}</small>
+
+                                                                                </li>
+                                                                            </ol>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer" style="text-align: center">
+                                                                <button type="button" id="dosubmit" class="btn btn-primary" data-dismiss="modal" aria-label="Close" >确认</button>
+                                                                <!--<button type="button" class="btn btn-primary" ng-disabled="addForm.$invalid" ng-click="addBtn()">确认新建</button>-->
+                                                            </div>
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                            <!-----选择试题end----->
+
+
+                            <div class="row">
+                                <div class="col-md-6 b-r">
+                                    <div class="form-group">
+                                        <div class="col-md-12" style="padding: 10px 0px">
+                                            <div class="col-md-2 text-center" style="margin-top: 8px">
+                                                <strong>文章类型选择：</strong>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input id="Inputtype" class="form-control" data-toggle="modal" data-target="#myModal" type="text" placeholder="请选择文章类型" ng-click="dianjikuang()" >
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12" style="padding: 10px 0px">
+                                            <div class="col-md-2 text-center" style="margin-top: 8px">
+                                                <strong>文章来源：</strong>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" placeholder="文章来源" name="source" ng-model="source">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12" style="padding: 10px 0px">
+                                            <div class="col-md-2 text-center" style="margin-top: 8px">
+                                                <strong>党组织：</strong>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <select class="form-control" ng-model="depts" ng-options="a.name for a in deptLists track by a.id" >
+                                                    <option  selected hidden></option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+                                        <!--<div class="col-md-12" style="padding: 10px 0px">-->
+                                            <!--<div class="col-md-4" style="text-align: right;margin-top: 7px">-->
+                                                <!--<strong>是否设置为他山之石：</strong><input type="checkbox" style="width: 20px;height: 20px" name="stoneIs" ng-model="stoneIs" ng-change="stoneClick(stoneIs)">-->
+                                            <!--</div>-->
+                                            <!--<div class="col-md-4" style="text-align: right;margin-top: 7px">-->
+                                                <!--<strong>是否可以评论：</strong><input type="checkbox" style="width: 20px;height: 20px" name="commentIs" ng-model="commentIs" ng-change="commentClick(pingjia)">-->
+                                            <!--</div>-->
+
+                                            <!--<div class="col-md-4" style="text-align: right;margin-top: 7px">-->
+                                                <!--<strong>是否设置为banner：</strong><input type="checkbox" style="width: 20px;height: 20px" name="bannerIs" ng-model="bannerIs" ng-change="bannerClick(bannerIs)">-->
+                                            <!--</div>-->
+
+                                        <!--</div>-->
+                                        <div class="col-md-12" style="padding: 10px 0px">
+                                            <div class="col-md-4" style="text-align: right;margin-top: 7px">
+                                                <strong>是否可以评论：</strong><input type="checkbox" style="width: 20px;height: 20px" name="commentIs" ng-model="commentIs" ng-change="commentClick(pingjia)">
+                                            </div>
+
+                                            <div class="col-md-4" style="text-align: right;margin-top: 7px">
+                                                <strong style="margin-top: 8px;">是否是视频教程：</strong><input type="checkbox" style="width: 20px;height: 20px" name="video" ng-model="video" ng-change="shifoushiping()">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 b-r" ng-show="isShow">
+                                            <div class="form-group" style="position: relative">
+                                                <div class="col-md-2" style="text-align: right;margin-top: 7px">
+                                                    <label style="display: block">视频地址：</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="url" class="form-control" placeholder="在此输入视频地址" name="urls" ng-model="urls">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="col-md-12" style="padding: 10px 0px">
+                                        <div class="col-md-2 text-center" style="margin-top: 8px">
+                                            <strong>文章标题：</strong>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" placeholder="请输入文章标题" name="title" ng-model="title">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12" style="padding: 10px 0px">
+                                        <div class="col-md-2 text-center" style="margin-top: 8px">
+                                            <strong>文章摘要：</strong>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control"   name="abstract" ng-model="abstract">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12" style="padding: 10px 0px">
+                                        <div class="col-md-2" style="text-align: right;margin-top: 7px">
+                                            <strong>发布时间：</strong>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="jewarp">
+                                                <div class="content">
+                                                    <div class="jeitem">
+                                                        <div class="jeinpbox"><input type="text" class="jeinput form-control" id="myDateClick" placeholder="设置发布时间"  ng-model="pubtime"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12" style="padding: 10px 0px">
+                                        <div class="col-md-2" style="text-align: right;margin-top: 7px">
+                                            <strong>学分：</strong>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input type="text" class="form-control"   name="period" ng-model="period">
+                                        </div>
+                                        <div class="col-md-2" style="text-align: right;margin-top: 7px">
+                                            <strong>作者：</strong>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="text" class="form-control"   name="author" ng-model="author">
+                                        </div>
+                                    </div>
+
+                                    <!--<div class="col-md-12" style="padding: 10px 0px">-->
+                                    <!--<div class="col-md-2" style="text-align: right;margin-top: 7px">-->
+                                    <!--<strong>作者：</strong>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-md-2">-->
+                                    <!--<input type="text" class="form-control"   name="author" ng-model="author">-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+
+                                    <div class="col-md-12 b-r" style="margin: 10px 0px">
+                                        <div class="form-group" style="position: relative">
+                                            <div class="col-md-2" style="text-align: right;margin-top: 7px">
+                                                <label style="display: block">封面图：</label>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <form id="form1" enctype="multipart/form-data" method="post" >
+                                                    <input type="file"   id="exampleInputFile"  name="file" onchange="angular.element(this).scope().upload()">
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-md-12">
+                                    <script id="editor"  type="text/plain" class="ued" name="content" ></script>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="col-md-4 col-md-offset-10">
+                                        <button   class="btn btn-sm btn-primary" data-toggle="tooltip"   ng-click="subtijiao()" >提交</button>
+                                        <a href="" class="btn btn-white btn-sm" data-toggle="tooltip" ng-click="fanhuishangcheng()">取消</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</div>
+
+
+
+<!-- Mainly scripts -->
+<script src="../js/jquery-2.1.1.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="../js/inspinia.js"></script>
+<script src="../js/plugins/pace/pace.min.js"></script>
+
+
+<!--Ueditor-->
+<script type="text/javascript"  charset="utf-8" src="js/utf8-php/ueditor.config.js"></script>
+<script type="text/javascript"  charset="utf-8" src="js/utf8-php/ueditor.all.min.js"></script>
+<script type="text/javascript"  charset="utf-8" src="js/utf8-php/lang/zh-cn/zh-cn.js"></script>
+
+
+
+
+<script>
+
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl',
+        function($scope, $http) {
+            var myDate=''
+            var typebbbb=[]
+            var typenana=[]
+            var fileurl = "";
+            var hhh
+            var Request = new UrlSearch(); //实例化
+            $scope.user_id=localStorage.getItem("user_id");
+            $scope.isShow=false;
+            $scope.banner=0;
+            $scope.comment=0;
+            $scope.recommend=0;
+
+
+
+
+
+
+
+//            $scope.user_id="142606654632975259";
+            // 这里是把原来的 getActionUrl 方法备份 到 _bkGetActionUrl
+            UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
+            UE.Editor.prototype.getActionUrl = function (action) {
+                //拦截这两个，其他的不拦截,调用备份
+                if (action == 'uploadimage' || action == 'uploadfile') {
+                    return "http://api.lpszzb.gov.cn/upload";
+                } else{
+                    return this._bkGetActionUrl.call(this, action);
+                }
+            };
+            //实例化编辑器
+            //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+            var ue = UE.getEditor('editor',{
+                allHtmlEnabled: false,//提交到后台的数据是否包含整个html字符串
+                autoHeightEnabled: false,
+                autoFloatEnabled: true,
+                allowDivTransToP: false//阻止div标签自动转换为p标签
+            });
+
+
+
+            $scope.shifoushiping=function () {
+                if($scope.video==true){
+                    $scope.isShow=true;
+                }else {
+                    $scope.isShow=false;
+                }
+            }
+            //全选/反选
+            $scope.SelectAll=function () {
+                var checkboxs=document.getElementsByName("check");
+                console.log(checkboxs.length)
+                for (var i=0;i<checkboxs.length;i++) {
+                    var e=checkboxs[i];
+                    e.checked=!e.checked;
+                }
+            }
+
+
+            $scope.dianjikuang=function () {
+                //               默认全选
+                var checkboxs=document.getElementsByName("check");
+
+                for (var i=0;i<checkboxs.length;i++) {
+
+                    checkboxs[i].checked=true;
+                }
+
+            }
+
+
+            
+            
+
+            $scope.load=function () {
+
+
+
+//                默认当前时间
+                    var newDate = new Date();
+                    var month = newDate.getMonth() + 1;
+                    var strDate = newDate.getDate();
+                    if (month >= 1 && month <= 9) {
+                        month = "0" + month;
+                    }
+                    if (strDate >= 0 && strDate <= 9) {
+                        strDate = "0" + strDate;
+                    }
+                    var currentDate = newDate.getFullYear() + "-" + month + "-" + strDate
+                        + " " + newDate.getHours() + ":" + newDate.getMinutes() + ":" + newDate.getSeconds();
+                $scope.pubtime=currentDate
+                
+
+
+                //选择日期加时间
+                jeDate("#myDateClick",{
+                    festival:false,
+                    minDate:"2018-01-01",              //最小日期
+                    maxDate:"2050-12-31",              //最大日期
+                    format: "YYYY-MM-DD hh:mm:ss",
+                    donefun: function(obj){
+                        myDate=obj.val;
+                       $scope.pubtime=myDate
+                    }
+                })
+
+
+
+
+                var liststype=[]
+                getshuju($scope.page);
+                dtptlist()
+                $scope.downOnClick = function () {
+                    if($scope.page<$scope.pagesLists){
+                        $scope.page = $scope.page+1;
+                        getshuju($scope.page);
+                    }
+                }
+                $scope.upOnClick = function () {
+                    if($scope.page>1) {
+                        $scope.page = $scope.page - 1;
+                        getshuju($scope.page);
+                    }
+                }
+                //获取文章类型
+                function getshuju(pageID) {
+                    $http.get("http://api.lpszzb.gov.cn/type")
+                        .then(function (res) {
+                            $scope.typelistone=res.data.data;
+
+                            for(var i=0;i<$scope.typelistone.length;i++){
+                                for (var m=0;m<$scope.typelistone[i].childs.length;m++){
+                                    typebbbb.push($scope.typelistone[i].childs[m])
+                                }
+                            }
+                        });
+                }
+
+// 获取type的id 组
+                $('#dosubmit').click(function(){
+
+                    var checkID = [];//定义一个空数组
+
+                    $("input[name='check']:checked").each(function(i){//把所有被选中的复选框的值存入数组
+                        checkID[i] =$(this).val();
+                    });
+                    console.log(checkID)
+                    var bbb
+                    bbb=checkID.join(',')
+                    $scope.type_ids=bbb;
+                    typenana=[]
+                    for(var i=0;i<typebbbb.length;i++){
+                        for (var b=0;b<checkID.length;b++){
+                            if(checkID[b]==typebbbb[i].type_id){
+                                typenana.push(typebbbb[i].type_name)
+                            }
+                        }
+                    }
+
+                    console.log(typenana)
+
+                    hhh=typenana.join(',')
+                    console.log(hhh)
+                    $("#Inputtype").val(hhh);
+                })
+
+
+
+
+
+
+                //    获取党组织结构
+                function dtptlist() {
+                    $http.get("http://api.lpszzb.gov.cn/dding?key=dept_list&dept_id=0")
+                        .then(function (res) {
+                            $scope.deptLists=res.data
+                            $scope.depts=$scope.deptLists[0]
+
+                        });
+                }
+
+
+
+
+            }
+
+
+
+
+
+
+            $scope.upload=function () {
+                var form = document.getElementById('form1'),
+                    formData = new FormData(form);
+                $.ajax({
+                    url:"http://api.lpszzb.gov.cn/upload",
+                    type:"post",
+                    data:formData,
+                    processData:false,
+                    contentType:false,
+                    success:function(res){
+                        if(res.url){
+                            fileurl = res.url
+                            var  title=res.title
+                            console.log(fileurl)
+                        }else {
+                            alert("图片错误，请重新选择图片")
+                        }
+
+
+                    },
+                    error:function(err){
+                        alert("网络连接失败,稍后重试",err);
+                    }
+                })
+            }
+
+            $scope.stoneClick=function () {
+                console.log($scope.stoneIs)
+                if($scope.stoneIs==true){
+                    $scope.recommend=1
+                }else {
+                    $scope.recommend=0
+                }
+                console.log($scope.recommend)
+            }
+
+            $scope.commentClick=function () {
+                if($scope.commentIs==true){
+                    $scope.comment=1
+                }else {
+                    $scope.comment=0
+                }
+            }
+
+            $scope.bannerClick=function () {
+                if($scope.bannerIs==true){
+                    $scope.banner=1
+                }else {
+                    $scope.banner=0
+                }
+            }
+
+
+
+
+
+            $scope.title="";
+            $scope.type_id="";
+            $scope.abstract="";
+            $scope.subtijiao=function () {
+                console.log(fileurl)
+                if(fileurl==''){
+                    fileurl='/static/files/20180628103815_cover.jpg'
+                    console.log(fileurl)
+                }
+                var httpurl="http://api.lpszzb.gov.cn"
+                var imageurl=httpurl+""+fileurl
+                $scope.data1 = {
+                    user_id: $scope.user_id,
+                    type_ids: $scope.type_ids,
+                    title: $scope.title,
+                    abstract: $scope.abstract,
+                    content:ue.getContent(),
+                    period:$scope.period,
+                    credit:$scope.credit,
+                    cover:imageurl,
+                    urls:$scope.urls,
+                    author:$scope.author,
+                    recommend:$scope.recommend,
+                    banner:$scope.banner,
+                    comment:$scope.comment,
+                    source:$scope.source,
+                    dept_id:$scope.depts.id,
+                    pubtime:$scope.pubtime
+
+                };
+                var url = "http://api.lpszzb.gov.cn/article";
+                var transFn = function (data) { return $.param(data) },
+                    postCfg = { headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' }, transformRequest: transFn };
+                $http.post(url,$scope.data1,postCfg).success(function (res) {
+                    window.location.href="article_home.html"
+
+
+                });
+            }
+
+            $scope.fanhuishangcheng=function () {
+                window.history.back();  //返回上一页
+            }
+
+            function UrlSearch() {
+                var name, value;
+                var str = location.href; //取得整个地址栏
+                console.log("地址="+str);
+                var num = str.indexOf("?");
+                str = str.substr(num + 1); //取得所有参数   stringvar.substr(start [, length ]
+
+                var arr = str.split("&"); //各个参数放到数组里
+                console.log("各个参数放到数组里="+arr);
+                for (var i = 0; i < arr.length; i++) {
+                    num = arr[i].indexOf("=");
+                    if (num > 0) {
+                        name = arr[i].substring(0, num);
+                        value = arr[i].substr(num + 1);
+                        this[name] = value;
+                    }
+                }
+            }
+        });
+
+</script>
+
+
+
+</body>
+
+</html>

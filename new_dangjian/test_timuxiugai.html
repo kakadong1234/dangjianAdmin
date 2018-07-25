@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>六盘水党建云</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <script src="../js/angularjs/angular.min.js"></script>
+
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl"  data-ng-init="load()">
+
+<div id="wrapper">
+
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element">
+                        <h3 style="color: white;font-size: 22px">
+                            <img src="img/login.png" style="width: 50px;height: auto">
+                            六盘水党建云
+                        </h3>
+                    </div>
+                    <div class="logo-element">
+                        党建云
+                    </div>
+                </li>
+                <li >
+                    <a href="article_home.html" target="_self"><i class="fa fa-th-large"></i> <span class="nav-label">网上讲习所</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="article_home.html" target="_self">文章管理</a></li>
+                        <li><a href="article_type.html" target="_self">文章类型</a></li>
+                        <!--<li><a href="article_comment.html" target="_self">评论管理</a></li>-->
+                    </ul>
+                </li>
+                <li >
+                    <a href="village_home.html" target="_self"><i class="fa fa-th-large"></i> <span class="nav-label">党建大数据</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="village_home.html" target="_self">党支部管理</a></li>
+                        <li><a href="ganbu_manage.html" target="_self">驻村干部管理</a></li>
+                        <li><a href="flags_piao.html" target="_self">党建地图</a></li>
+                    </ul>
+                </li>
+
+                <!-- <li>
+                    <a href="flags_piao.html" target="_self"><i class="fa fa-diamond"></i> <span class="nav-label">党建地图</span></a>
+                </li> -->
+
+                <!--<li>-->
+                <!--<a href="news_manage.html" target="_self"><i class="fa fa-diamond"></i> <span class="nav-label">党建新闻管理</span></a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a href="three_sessions.html" target="_self"><i class="fa fa-diamond"></i> <span class="nav-label">三会一课</span></a>-->
+                <!--</li>-->
+                <li class="active">
+                    <a href="table_data_tables.html#" target="_self"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">云学习中心</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <!-- <li><a href="graph_flot.html" target="_self">教学资源</a></li> -->
+                        <li><a href="examination_paper_list.html" target="_self">考试管理</a></li>
+                        <li class="active"><a href="test_manage.html" target="_self">考试题管理</a></li>
+                        <li><a href="study_credit_list.html" target="_self">在线学习学分配置</a></li>
+                        <!-- <li><a href="graph_chartjs.html" target="_self">活动开展情况</a></li> -->
+                    </ul>
+                </li>
+                <!--<li>-->
+                <!--<a href="#" target="_self"><i class="fa fa-wrench"></i> <span class="nav-label">系统管理</span><span class="fa arrow"></span></a>-->
+                <!--<ul class="nav nav-second-level collapse" >-->
+                <!--<li><a href="#" target="_self">系统配置</a></li>-->
+                <!--<li><a href="#" target="_self">权限管理</a></li>-->
+                <!--<li><a href="login.html" target="_self">退出</a></li>-->
+                <!--</ul>-->
+                <!--</li>-->
+
+            </ul>
+
+        </div>
+    </nav>
+
+    <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="test_timuxiugai.html"><i class="fa fa-bars"></i> </a>
+                    <form role="search" class="navbar-form-custom" action="#">
+                        <div class="form-group">
+                            <input type="text"  class="form-control" name="top-search" id="top-search">
+                        </div>
+                    </form>
+                </div>
+                <!--<ul class="nav navbar-top-links navbar-right">-->
+                <!--<li>-->
+                <!--<span class="m-r-sm text-muted welcome-message">欢迎来到智慧党建系统</span>-->
+                <!--</li>-->
+                <!--<li class="dropdown">-->
+                <!--<a class="dropdown-toggle count-info" data-toggle="dropdown" href="table_data_tables.html#">-->
+                <!--<i class="fa fa-envelope"></i>  <span class="label label-warning">0</span>-->
+                <!--</a>-->
+
+                <!--&lt;!&ndash;邮件信息&ndash;&gt;-->
+                <!--&lt;!&ndash;<ul class="dropdown-menu dropdown-messages">&ndash;&gt;-->
+                <!--&lt;!&ndash;<li>&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="dropdown-messages-box">&ndash;&gt;-->
+                <!--&lt;!&ndash;<a href="profile.html" class="pull-left">&ndash;&gt;-->
+                <!--&lt;!&ndash;<img alt="image" class="img-circle" src="img/a7.jpg">&ndash;&gt;-->
+                <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="media-body">&ndash;&gt;-->
+                <!--&lt;!&ndash;<small class="pull-right">46h ago</small>&ndash;&gt;-->
+                <!--&lt;!&ndash;<strong>Mike Loreipsum</strong> started following <strong>Monica Smith</strong>. <br>&ndash;&gt;-->
+                <!--&lt;!&ndash;<small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                <!--&lt;!&ndash;<li class="divider"></li>&ndash;&gt;-->
+                <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+                <!--&lt;!&ndash;&ndash;&gt;-->
+
+                <!--</li>-->
+                <!--<li class="dropdown">-->
+                <!--<a class="dropdown-toggle count-info" data-toggle="dropdown" href="table_data_tables.html#">-->
+                <!--<i class="fa fa-bell"></i>  <span class="label label-primary">0</span>-->
+                <!--</a>-->
+
+                <!--&lt;!&ndash;待办提示&ndash;&gt;-->
+                <!--&lt;!&ndash;<ul class="dropdown-menu dropdown-alerts">&ndash;&gt;-->
+                <!--&lt;!&ndash;<li>&ndash;&gt;-->
+                <!--&lt;!&ndash;<a href="mailbox.html">&ndash;&gt;-->
+                <!--&lt;!&ndash;<div>&ndash;&gt;-->
+                <!--&lt;!&ndash;<i class="fa fa-envelope fa-fw"></i> You have 16 messages&ndash;&gt;-->
+                <!--&lt;!&ndash;<span class="pull-right text-muted small">4 minutes ago</span>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                <!--&lt;!&ndash;<li class="divider"></li>&ndash;&gt;-->
+                <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+                <!--</li>-->
+
+
+                <!--<li>-->
+                <!--<div class="dropdown" style="color: #888888">-->
+                <!--<a class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="padding: 0;min-height: 0;background-color: #f3f3f4;border: none;">-->
+                <!--系统管理员-->
+                <!--<span class="caret"></span>-->
+                <!--</a>-->
+                <!--<ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="background-color:#f3f3f4 ">-->
+                <!--<li><a href="#">我的信息</a></li>-->
+                <!--<li><a href="login.html">退出</a></li>-->
+
+                <!--</ul>-->
+                <!--</div>-->
+                <!--</li>-->
+                <!--</ul>-->
+
+            </nav>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row" ng-show="eqt_name=='判断题'">
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>判断题内容修改：<small></small></h5>
+                        </div>
+                        <div class="ibox-content">
+                            <form target="uploadIframe" >
+                                <div class="row">
+                                    <div class="col-md-12 b-r" style="margin: 10px 0px">
+                                        <div class="form-group">
+                                            <div class="col-md-1" style="text-align: right;margin-top: 7px">
+                                                <strong>试题内容：</strong>
+                                            </div>
+                                            <div class="col-md-11">
+                                                <input type="text" class="form-control"  name="question"  ng-model="question">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 b-r" style="margin: 10px 0px">
+                                        <div class="form-group">
+                                            <div class="col-md-1" style="text-align: right;margin-top: 7px">
+                                                <strong>答案：</strong>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <select class="form-control" name="answer"  ng-model="answer">
+                                                    <option value="X">X</option>
+                                                    <option value="V">V</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 b-r" style="margin: 10px 0px">
+                                        <div class="form-group">
+                                            <div class="col-md-1" style="text-align: right;margin-top: 7px">
+                                                <strong>标签</strong>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text"  class="form-control"   name="tags"  ng-model="tags">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 b-r" style="margin: 10px 0px">
+                                        <div class="form-group">
+                                            <div class=" text-right tooltip-demo">
+                                                <button  class="btn btn-sm btn-primary" data-toggle="tooltip" ng-click="submittijiao()" >提交</button>
+                                                <a href="test_manage.html" class="btn btn-white btn-sm" data-toggle="tooltip">取消</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" ng-show="eqt_name=='单选题'">
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>单选题内容修改：<small></small></h5>
+                        </div>
+                        <div class="ibox-content">
+                            <form target="uploadIframe" >
+                                <div class="row">
+                                    <div class="col-md-12 b-r" style="margin: 10px 0px">
+                                        <div class="form-group">
+                                            <div class="col-md-1" style="text-align: right;margin-top: 7px">
+                                                <strong>试题内容：</strong>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control"  name="question"  ng-model="question">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 b-r" style="margin: 10px 0px">
+                                        <div class="form-group">
+                                            <div class="col-md-1" style="text-align: right;margin-top: 7px">
+                                                <strong>选项A：</strong>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <input type="text" class="form-control"  name="op_a"  ng-model="op_a" >
+                                            </div>
+                                            <div class="col-md-1" style="text-align: right;margin-top: 7px">
+                                                <strong>选项B：</strong>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <input type="text" class="form-control" name="op_b"  ng-model="op_b" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 b-r" style="margin: 10px 0px">
+                                        <div class="form-group">
+                                            <div class="col-md-1" style="text-align: right;margin-top: 7px">
+                                                <strong>选项C：</strong>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <input type="text" class="form-control"   name="op_c"  ng-model="op_c">
+                                            </div>
+                                            <div class="col-md-1" style="text-align: right;margin-top: 7px">
+                                                <strong>选项D：</strong>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <input type="text" class="form-control"  name="op_d"  ng-model="op_d">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 b-r" style="margin: 10px 0px">
+                                        <div class="form-group">
+                                            <div class="col-md-1" style="text-align: right;margin-top: 7px">
+                                                <strong>答案：</strong>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <select class="form-control" name="answer"  ng-model="answer">
+                                                    <option value="A">A</option>
+                                                    <option value="B">B</option>
+                                                    <option value="C">C</option>
+                                                    <option value="D">D</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 b-r" style="margin: 10px 0px">
+                                        <div class="form-group">
+                                            <div class="col-md-1" style="text-align: right;margin-top: 7px">
+                                                <strong>标签</strong>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <input type="text" class="form-control" name="tags"  ng-model="tags" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 b-r" style="margin: 10px 0px">
+                                        <div class="form-group">
+                                            <div class=" text-right tooltip-demo">
+                                                <button  class="btn btn-sm btn-primary" data-toggle="tooltip"  ng-click="danxuantijiao()">提交</button>
+                                                <a href="test_manage.html" class="btn btn-white btn-sm" data-toggle="tooltip">取消</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" ng-show="eqt_name=='多选题'">
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>判断题内容修改：<small></small></h5>
+                        </div>
+                        <div class="ibox-content">
+                            <form target="uploadIframe" >
+                                <div class="row">
+                                    <div class="col-md-12 b-r" style="margin: 10px 0px">
+                                        <div class="form-group">
+                                            <div class="col-md-1" style="text-align: right;margin-top: 7px">
+                                                <strong>试题内容：</strong>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control"   >
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 b-r" style="margin: 10px 0px">
+                                        <div class="form-group">
+                                            <div class="col-md-1" style="text-align: right;margin-top: 7px">
+                                                <strong>答案：</strong>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <select class="form-control">
+                                                    <option value="1">X</option>
+                                                    <option value="2">V</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 b-r" style="margin: 10px 0px">
+                                        <div class="form-group">
+                                            <div class="col-md-1" style="text-align: right;margin-top: 7px">
+                                                <strong>标签</strong>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control"  >
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 b-r" style="margin: 10px 0px">
+                                        <div class="form-group">
+                                            <div class=" text-right tooltip-demo">
+                                                <button  class="btn btn-sm btn-primary" data-toggle="tooltip" ng-click="submittijiao()">提交</button>
+                                                <a href="test_manage.html" class="btn btn-white btn-sm" data-toggle="tooltip">取消</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+</div>
+
+
+
+<!-- Mainly scripts -->
+<script src="../js/jquery-2.1.1.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<!-- Peity -->
+<script src="../js/plugins/peity/jquery.peity.min.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="../js/inspinia.js"></script>
+<script src="../js/plugins/pace/pace.min.js"></script>
+
+<!-- iCheck -->
+<script src="../js/plugins/iCheck/icheck.min.js"></script>
+
+<!-- Peity -->
+<script src="../js/demo/peity-demo.js"></script>
+<script src="js/test_timuxiugai.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $('.i-checks').iCheck({
+            checkboxClass: 'icheckbox_square-green',
+            radioClass: 'iradio_square-green',
+        });
+    });
+</script>
+
+</body>
+
+</html>

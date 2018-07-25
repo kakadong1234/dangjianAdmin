@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>智慧党建 | 农技咨询</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+
+    <link href="../css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+    <script src="../js/angularjs/angular.min.js"></script>
+
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl"  data-ng-init="load()">
+
+<div id="wrapper">
+
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element">
+                        <h1 style="color: white">智慧党建</h1>
+                    </div>
+                    <div class="logo-element">
+                        党建
+                    </div>
+                </li>
+                <li class="active">
+                    <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">党建促脱贫</span> <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li>
+                            <a href="#">网上讲习所<span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                <li>
+                                    <a href="home.html">习近平新时代中国特色社会主义思想</a>
+                                </li>
+                                <li>
+                                    <a href="home_teach.html">新时代学习大讲堂</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <!-- <a href="#">驻村干部管理<span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                <li>
+                                    <a href="ganbu_manage.html#">人员管理</a>
+                                </li>
+                                <li>
+                                    <a href="daily_manage.html#">日常管理</a>
+                                </li>
+                                <li>
+                                    <a href="daily_service.html#">日常服务</a>
+                                </li>
+                            </ul> -->
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="flags_piao.html"><i class="fa fa-diamond"></i> <span class="nav-label">党旗飘飘</span></a>
+                </li>
+                <li>
+                    <a href="flags_people.html"><i class="fa fa-diamond"></i> <span class="nav-label">党支部管理</span></a>
+                </li>
+                <li>
+                    <a href="news_manage.html"><i class="fa fa-diamond"></i> <span class="nav-label">党建新闻管理</span></a>
+                </li>
+                <li>
+                    <a href="three_sessions.html"><i class="fa fa-diamond"></i> <span class="nav-label">三会一课</span></a>
+                </li>
+                <li>
+                    <a href="table_data_tables.html#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">云学习中心</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                             <!-- <li><a href="graph_flot.html">教学资源</a></li> -->
+                        <li><a href="examination_paper_list.html">考试管理</a></li>
+                        <li><a href="test_manage.html">考试题管理</a></li>
+                        <li><a href="study_credit_list.html">在线学习学分配置</a></li>
+                        <!-- <li><a href="graph_chartjs.html">活动开展情况</a></li> -->
+                    </ul>
+                </li>
+                <!--<li>-->
+                    <!--<a href="#"><i class="fa fa-wrench"></i> <span class="nav-label">系统管理</span><span class="fa arrow"></span></a>-->
+                    <!--<ul class="nav nav-second-level collapse" >-->
+                        <!--<li><a href="#">系统配置</a></li>-->
+                        <!--<li><a href="#">权限管理</a></li>-->
+                        <!--<li><a href="login.html">退出</a></li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+
+            </ul>
+
+        </div>
+    </nav>
+
+    <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="nongjizixun.html#"><i class="fa fa-bars"></i> </a>
+                    <form role="search" class="navbar-form-custom" action="search_results.html">
+                        <div class="form-group">
+                            <input type="text" placeholder="搜索..." class="form-control" name="top-search" id="top-search">
+                        </div>
+                    </form>
+                </div>
+                <!--<ul class="nav navbar-top-links navbar-right">-->
+                    <!--<li>-->
+                        <!--<span class="m-r-sm text-muted welcome-message">欢迎来到智慧党建系统</span>-->
+                    <!--</li>-->
+                    <!--<li class="dropdown">-->
+                        <!--<a class="dropdown-toggle count-info" data-toggle="dropdown" href="table_data_tables.html#">-->
+                            <!--<i class="fa fa-envelope"></i>  <span class="label label-warning">0</span>-->
+                        <!--</a>-->
+
+                        <!--&lt;!&ndash;邮件信息&ndash;&gt;-->
+                        <!--&lt;!&ndash;<ul class="dropdown-menu dropdown-messages">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<li>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="dropdown-messages-box">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<a href="profile.html" class="pull-left">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<img alt="image" class="img-circle" src="img/a7.jpg">&ndash;&gt;-->
+                        <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="media-body">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<small class="pull-right">46h ago</small>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<strong>Mike Loreipsum</strong> started following <strong>Monica Smith</strong>. <br>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<li class="divider"></li>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+                        <!--&lt;!&ndash;&ndash;&gt;-->
+
+                    <!--</li>-->
+                    <!--<li class="dropdown">-->
+                        <!--<a class="dropdown-toggle count-info" data-toggle="dropdown" href="table_data_tables.html#">-->
+                            <!--<i class="fa fa-bell"></i>  <span class="label label-primary">0</span>-->
+                        <!--</a>-->
+
+                        <!--&lt;!&ndash;待办提示&ndash;&gt;-->
+                        <!--&lt;!&ndash;<ul class="dropdown-menu dropdown-alerts">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<li>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<a href="mailbox.html">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<i class="fa fa-envelope fa-fw"></i> You have 16 messages&ndash;&gt;-->
+                        <!--&lt;!&ndash;<span class="pull-right text-muted small">4 minutes ago</span>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<li class="divider"></li>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+                    <!--</li>-->
+
+
+                    <!--<li>-->
+                        <!--<div class="dropdown" style="color: #888888">-->
+                            <!--<a class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="padding: 0;min-height: 0;background-color: #f3f3f4;border: none;">-->
+                                <!--系统管理员-->
+                                <!--<span class="caret"></span>-->
+                            <!--</a>-->
+                            <!--<ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="background-color:#f3f3f4 ">-->
+                                <!--<li><a href="#">我的信息</a></li>-->
+                                <!--<li><a href="login.html">退出</a></li>-->
+
+                            <!--</ul>-->
+                        <!--</div>-->
+                    <!--</li>-->
+                <!--</ul>-->
+
+            </nav>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>农技咨询：<small>在此填写咨询问题...</small></h5>
+                            <!--<div class="ibox-tools">-->
+                                <!--<a class="collapse-link">-->
+                                    <!--<i class="fa fa-chevron-up"></i>-->
+                                <!--</a>-->
+                                <!--&lt;!&ndash;<a class="dropdown-toggle" data-toggle="dropdown" href="form_basic.html#">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<i class="fa fa-wrench"></i>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<ul class="dropdown-menu dropdown-user">&ndash;&gt;-->
+                                <!--&lt;!&ndash;<li><a href="form_basic.html#">Config option 1</a>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<li><a href="form_basic.html#">Config option 2</a>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                                <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+                                <!--<a class="close-link">-->
+                                    <!--<i class="fa fa-times"></i>-->
+                                <!--</a>-->
+                            <!--</div>-->
+                        </div>
+                        <div class="ibox-content">
+                            <form target="uploadIframe" id="form1" ng-show="Edit==0"  method="post" action="./../wechatapi/#" enctype="multipart/form-data">
+                                <input type="hidden" name="account" value="{{username}}">
+                                <input type="hidden" name="title" value="{{date2}}日志">
+                                <input type="hidden" name="from" value="web">
+                                <div class="row">
+                                    <div class="col-md-6 b-r"><h3 class="m-t-none m-b"></h3>
+                                        <!--<p>Sign in today for more expirience.</p>-->
+
+                                        <div >
+                                            <div class="form-group"><label>咨询日期：</label> <input type="date"  class="form-control" value="{{date2}}" max="{{date2}}" name="taizhangriqi" id="date1"></div>
+                                            <div class="form-group"><label>咨询人：</label>
+                                                <select class="form-control" tabindex="-1" aria-hidden="true"  ng-model="selectedSite">
+                                                    <option ng-repeat="x in sites" value="{{x.water_id}}">{{x.water_name}}</option>
+                                                </select>
+                                                <input type="hidden" name="river_id" value="{{selectedSite}}">
+                                            </div>
+                                            <div class="form-group" style="position: relative"><label style="display: block">上传文件：</label>
+                                                <input type="file"  style="opacity:0;position: absolute;width: 84px;height: 32px" id="exampleInputFile" name="upload_image"  onchange="showPreview(this)">
+                                                <button  class="btn btn-white" style="float: left">选择文件</button>
+                                                <label style="margin: 8px 20px;float: left" class="show"></label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6"><h4>咨询内容：</h4>
+                                        <textarea class="col-md-12 form-control" style="height: 140px;" placeholder="在此填写内容..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="col-md-4 col-md-offset-10">
+                                            <a href="table_data_tables.html?username={{username}}"><button class="btn btn-white">取消</button></a>
+                                            <button class="btn btn-primary" type="submit">提交</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>我的咨询：<small>您咨询的问题...</small></h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+                            <div class="table-responsive" >
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th width="5%">咨询人</th>
+                                        <th width="10%">咨询日期</th>
+                                        <th width="60%">咨询内容</th>
+                                        <th>专家回复</th>
+
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td >张三</td>
+                                        <td>2018-05-05 10:05</td>
+                                        <td>
+                                            <p>如何办中国特色世界一流大学？习近平强调，要抓好三项基础性工作，即坚持办学正确政治方向、建设高素质教师队伍、形成高水平人才培养体系。</p>
+                                        </td>
+                                        <td>专家回复的内容</td>
+
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate" style="float: right" ng-hide="pagesLists<=1">
+                                    <ul class="pagination">
+                                        <li class="paginate_button previous disabled" id="DataTables_Table_0_previous">
+                                            <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" ng-click="upOnClick()">上一页</a>
+                                        </li>
+                                        <li class="paginate_button active">
+                                            <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0">{{page}}/{{pagesLists}}</a>
+                                        </li>
+                                        <li class="paginate_button next" id="DataTables_Table_0_next">
+                                            <a href="#" aria-controls="DataTables_Table_0" data-dt-idx="7" tabindex="0" ng-click="downOnClick()">下一页</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="footer">
+            <!--<div class="pull-right">-->
+            <!--10GB of <strong>250GB</strong> Free.-->
+            <!--</div>-->
+            <!--<div>-->
+            <!--<strong>Copyright</strong> Example Company &copy; 2014-2015-->
+            <!--</div>-->
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Mainly scripts -->
+<script src="../js/jquery-2.1.1.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="../js/inspinia.js"></script>
+<script src="../js/plugins/pace/pace.min.js"></script>
+
+<!-- iCheck -->
+<script src="../js/plugins/iCheck/icheck.min.js"></script>
+
+<script rel="stylesheet" src="js/nongjizixun.js"></script>
+<script>
+    function showPreview(source) {
+        var arrs = $(source).val().split('\\'); var filename=arrs[arrs.length-1]; $(".show").html(filename);
+        var file = source.files[0];
+        var total = file.size; if(window.FileReader) {
+            var fr = new FileReader();
+            fr.onprogress = function(e) { $(".progress1").show();
+                $("#Progress").val((e.loaded/total)*100) };
+            fr.onabort=function () {
+            };
+            fr.onerror=function () {
+            };
+            fr.onload=function () { $(".progress1").hide();
+            };
+            fr.readAsDataURL(file);
+        }
+    }
+</script>
+</body>
+
+</html>

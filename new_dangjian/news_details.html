@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>六盘水党建云</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <script src="../js/angularjs/angular.min.js"></script>
+
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl"  data-ng-init="load()">
+
+<div id="wrapper">
+
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element">
+                        <h3 style="color: white;font-size: 22px">
+                            <img src="img/login.png" style="width: 50px;height: auto">
+                            六盘水党建云
+                        </h3>
+                    </div>
+                    <div class="logo-element">
+                        党建云
+                    </div>
+                </li>
+                <li >
+                    <a href="article_home.html" target="_self"><i class="fa fa-th-large"></i> <span class="nav-label">网上讲习所</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="article_home.html" target="_self">文章管理</a></li>
+                        <li><a href="article_type.html" target="_self">文章类型</a></li>
+                        <!--<li><a href="article_comment.html" target="_self">评论管理</a></li>-->
+                    </ul>
+                </li>
+                <li >
+                    <a href="village_home.html" target="_self"><i class="fa fa-th-large"></i> <span class="nav-label">党建大数据</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="village_home.html" target="_self">党支部管理</a></li>
+                        <li><a href="ganbu_manage.html" target="_self">驻村干部管理</a></li>
+                        <li><a href="flags_piao.html" target="_self">党建地图</a></li>
+                    </ul>
+                </li>
+
+                <!-- <li class="active">
+                    <a href="flags_piao.html" target="_self"><i class="fa fa-diamond"></i> <span class="nav-label">党建地图</span></a>
+                </li> -->
+
+                <!--<li>-->
+                <!--<a href="news_manage.html" target="_self"><i class="fa fa-diamond"></i> <span class="nav-label">党建新闻管理</span></a>-->
+                <!--</li>-->
+                <!--<li>-->
+                <!--<a href="three_sessions.html" target="_self"><i class="fa fa-diamond"></i> <span class="nav-label">三会一课</span></a>-->
+                <!--</li>-->
+                <li>
+                    <a href="table_data_tables.html#" target="_self"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">云学习中心</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <!-- <li><a href="graph_flot.html" target="_self">教学资源</a></li> -->
+                        <li><a href="examination_paper_list.html" target="_self">考试管理</a></li>
+                        <li><a href="test_manage.html" target="_self">考试题管理</a></li>
+                        <li><a href="study_credit_list.html" target="_self">在线学习学分配置</a></li>
+                        <!-- <li><a href="graph_chartjs.html" target="_self">活动开展情况</a></li> -->
+                    </ul>
+                </li>
+                <!--<li>-->
+                <!--<a href="#" target="_self"><i class="fa fa-wrench"></i> <span class="nav-label">系统管理</span><span class="fa arrow"></span></a>-->
+                <!--<ul class="nav nav-second-level collapse" >-->
+                <!--<li><a href="#" target="_self">系统配置</a></li>-->
+                <!--<li><a href="#" target="_self">权限管理</a></li>-->
+                <!--<li><a href="login.html" target="_self">退出</a></li>-->
+                <!--</ul>-->
+                <!--</li>-->
+
+            </ul>
+
+        </div>
+    </nav>
+
+    <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="news_details.html"><i class="fa fa-bars"></i> </a>
+                    <form role="search" class="navbar-form-custom" action="#">
+                        <div class="form-group">
+                            <input type="text"  class="form-control" name="top-search" id="top-search">
+                        </div>
+                    </form>
+                </div>
+                <!--<ul class="nav navbar-top-links navbar-right">-->
+                <!--<li>-->
+                <!--<span class="m-r-sm text-muted welcome-message">欢迎来到智慧党建系统</span>-->
+                <!--</li>-->
+                <!--<li class="dropdown">-->
+                <!--<a class="dropdown-toggle count-info" data-toggle="dropdown" href="table_data_tables.html#">-->
+                <!--<i class="fa fa-envelope"></i>  <span class="label label-warning">0</span>-->
+                <!--</a>-->
+
+                <!--&lt;!&ndash;邮件信息&ndash;&gt;-->
+                <!--&lt;!&ndash;<ul class="dropdown-menu dropdown-messages">&ndash;&gt;-->
+                <!--&lt;!&ndash;<li>&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="dropdown-messages-box">&ndash;&gt;-->
+                <!--&lt;!&ndash;<a href="profile.html" class="pull-left">&ndash;&gt;-->
+                <!--&lt;!&ndash;<img alt="image" class="img-circle" src="img/a7.jpg">&ndash;&gt;-->
+                <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="media-body">&ndash;&gt;-->
+                <!--&lt;!&ndash;<small class="pull-right">46h ago</small>&ndash;&gt;-->
+                <!--&lt;!&ndash;<strong>Mike Loreipsum</strong> started following <strong>Monica Smith</strong>. <br>&ndash;&gt;-->
+                <!--&lt;!&ndash;<small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                <!--&lt;!&ndash;<li class="divider"></li>&ndash;&gt;-->
+                <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+                <!--&lt;!&ndash;&ndash;&gt;-->
+
+                <!--</li>-->
+                <!--<li class="dropdown">-->
+                <!--<a class="dropdown-toggle count-info" data-toggle="dropdown" href="table_data_tables.html#">-->
+                <!--<i class="fa fa-bell"></i>  <span class="label label-primary">0</span>-->
+                <!--</a>-->
+
+                <!--&lt;!&ndash;待办提示&ndash;&gt;-->
+                <!--&lt;!&ndash;<ul class="dropdown-menu dropdown-alerts">&ndash;&gt;-->
+                <!--&lt;!&ndash;<li>&ndash;&gt;-->
+                <!--&lt;!&ndash;<a href="mailbox.html">&ndash;&gt;-->
+                <!--&lt;!&ndash;<div>&ndash;&gt;-->
+                <!--&lt;!&ndash;<i class="fa fa-envelope fa-fw"></i> You have 16 messages&ndash;&gt;-->
+                <!--&lt;!&ndash;<span class="pull-right text-muted small">4 minutes ago</span>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                <!--&lt;!&ndash;<li class="divider"></li>&ndash;&gt;-->
+                <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+                <!--</li>-->
+
+
+                <!--<li>-->
+                <!--<div class="dropdown" style="color: #888888">-->
+                <!--<a class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="padding: 0;min-height: 0;background-color: #f3f3f4;border: none;">-->
+                <!--系统管理员-->
+                <!--<span class="caret"></span>-->
+                <!--</a>-->
+                <!--<ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="background-color:#f3f3f4 ">-->
+                <!--<li><a href="#">我的信息</a></li>-->
+                <!--<li><a href="login.html">退出</a></li>-->
+
+                <!--</ul>-->
+                <!--</div>-->
+                <!--</li>-->
+                <!--</ul>-->
+
+            </nav>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12 animated fadeInRight">
+                    <div class="mail-box-header">
+                        <div class="pull-right tooltip-demo">
+                            <a href="#" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="推荐"><i class="fa fa-thumbs-o-up"></i> 推荐</a>
+                            <a href="#" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="打印"><i class="fa fa-print"></i></a>
+                            <a href="#" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="删除"><i class="fa fa-trash-o"></i> </a>
+                        </div>
+                        <h2>
+                            <strong>党建新闻</strong>党建新闻
+                        </h2>
+                        <div class="mail-tools tooltip-demo m-t-md">
+
+
+                            <h3>
+                                <span class="font-noraml"></span>六枝特区党员带头，精准扶贫
+                            </h3>
+                            <h5>
+                                <span class="pull-right font-noraml">2018-05-21</span>
+                                <span class="font-noraml">编写人: </span>张三
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="mail-box">
+
+
+                        <div class="mail-body">
+                            <p style="text-indent: 2em;line-height: 34px;">{{content}}</p>
+                        </div>
+                        <div class="mail-attachment">
+                            <p>
+                                <span><i class="fa fa-paperclip"></i>附件 - </span>
+                                <a href="#">全部下载</a>
+                                |
+                                <a href="#">查看所有图片</a>
+                            </p>
+
+                            <div class="attachment">
+                                <div class="file-box">
+                                    <div class="file">
+                                        <a href="#">
+                                            <span class="corner"></span>
+                                            <img src="img/a1.jpg">
+                                            <!--<div class="icon">-->
+                                                <!--<i class="fa fa-file"></i>-->
+                                            <!--</div>-->
+                                            <div class="file-name">
+                                                <img src="img/a1.jpg">
+                                                <br/>
+                                                <small>2018-05-21</small>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="mail-body text-right tooltip-demo">
+                            <a class="btn btn-sm btn-white" href="text_detail.html"><i class="fa fa-thumbs-o-up"></i> 推荐</a>
+                            <a class="btn btn-sm btn-white" href="text_detail.html"><i class="fa fa-share-alt"></i> 分享</a>
+                            <button title="" data-placement="top" data-toggle="tooltip" type="button" data-original-title="Print" class="btn btn-sm btn-white"><i class="fa fa-print"></i> 打印</button>
+                            <button title="" data-placement="top" data-toggle="tooltip" data-original-title="Trash" class="btn btn-sm btn-white"><i class="fa fa-trash-o"></i> 删除</button>
+                        </div>
+                        <div class="clearfix"></div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+</div>
+
+
+
+<!-- Mainly scripts -->
+<script src="../js/jquery-2.1.1.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<!-- Peity -->
+<script src="../js/plugins/peity/jquery.peity.min.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="../js/inspinia.js"></script>
+<script src="../js/plugins/pace/pace.min.js"></script>
+
+<!-- iCheck -->
+<script src="../js/plugins/iCheck/icheck.min.js"></script>
+
+<!-- Peity -->
+<script src="../js/demo/peity-demo.js"></script>
+<script src="js/news_details.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $('.i-checks').iCheck({
+            checkboxClass: 'icheckbox_square-green',
+            radioClass: 'iradio_square-green',
+        });
+    });
+</script>
+
+</body>
+
+</html>

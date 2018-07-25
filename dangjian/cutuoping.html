@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>智慧党建 | 首页</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Toastr style -->
+    <link href="../css/plugins/toastr/toastr.min.css" rel="stylesheet">
+
+    <!-- Gritter -->
+    <link href="../js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+<div id="wrapper">
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element">
+                        <h1 style="color: white">智慧党建</h1>
+                    </div>
+                    <div class="logo-element">
+                        党建
+                    </div>
+                </li>
+                <li class="active">
+                    <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">党建促脱贫</span> <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li>
+                            <a href="#">网上讲习所<span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                <li>
+                                    <a href="home.html">习近平新时代中国特色社会主义思想</a>
+                                </li>
+                                <li>
+                                    <a href="home_teach.html">新时代学习大讲堂</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <!-- <a href="#">驻村干部管理<span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                <li>
+                                    <a href="ganbu_manage.html#">人员管理</a>
+                                </li>
+                                <li>
+                                    <a href="daily_manage.html#">日常管理</a>
+                                </li>
+                                <li>
+                                    <a href="daily_service.html#">日常服务</a>
+                                </li>
+                            </ul> -->
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="flags_piao.html"><i class="fa fa-diamond"></i> <span class="nav-label">党旗飘飘</span></a>
+                </li>
+                <li>
+                    <a href="flags_people.html"><i class="fa fa-diamond"></i> <span class="nav-label">党支部管理</span></a>
+                </li>
+                <li>
+                    <a href="news_manage.html"><i class="fa fa-diamond"></i> <span class="nav-label">党建新闻管理</span></a>
+                </li>
+                <li>
+                    <a href="three_sessions.html"><i class="fa fa-diamond"></i> <span class="nav-label">三会一课</span></a>
+                </li>
+                <li>
+                    <a href="table_data_tables.html#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">云学习中心</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                             <!-- <li><a href="graph_flot.html">教学资源</a></li> -->
+                        <li><a href="examination_paper_list.html">考试管理</a></li>
+                        <li><a href="test_manage.html">考试题管理</a></li>
+                        <li><a href="study_credit_list.html">在线学习学分配置</a></li>
+                        <!-- <li><a href="graph_chartjs.html">活动开展情况</a></li> -->
+                    </ul>
+                </li>
+                <!--<li>-->
+                    <!--<a href="#"><i class="fa fa-wrench"></i> <span class="nav-label">系统管理</span><span class="fa arrow"></span></a>-->
+                    <!--<ul class="nav nav-second-level collapse" >-->
+                        <!--<li><a href="#">系统配置</a></li>-->
+                        <!--<li><a href="#">权限管理</a></li>-->
+                        <!--<li><a href="login.html">退出</a></li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+
+            </ul>
+
+        </div>
+    </nav>
+
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="cutuoping.html#"><i class="fa fa-bars"></i> </a>
+                    <form role="search" class="navbar-form-custom" action="search_results.html">
+                        <div class="form-group">
+                            <input type="text" placeholder="搜索..." class="form-control" name="top-search" id="top-search">
+                        </div>
+                    </form>
+                </div>
+                <!--<ul class="nav navbar-top-links navbar-right">-->
+                    <!--<li>-->
+                        <!--<span class="m-r-sm text-muted welcome-message">欢迎来到智慧党建系统</span>-->
+                    <!--</li>-->
+                    <!--<li class="dropdown">-->
+                        <!--<a class="dropdown-toggle count-info" data-toggle="dropdown" href="table_data_tables.html#">-->
+                            <!--<i class="fa fa-envelope"></i>  <span class="label label-warning">0</span>-->
+                        <!--</a>-->
+
+                        <!--&lt;!&ndash;邮件信息&ndash;&gt;-->
+                        <!--&lt;!&ndash;<ul class="dropdown-menu dropdown-messages">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<li>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="dropdown-messages-box">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<a href="profile.html" class="pull-left">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<img alt="image" class="img-circle" src="img/a7.jpg">&ndash;&gt;-->
+                        <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="media-body">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<small class="pull-right">46h ago</small>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<strong>Mike Loreipsum</strong> started following <strong>Monica Smith</strong>. <br>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<li class="divider"></li>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+                        <!--&lt;!&ndash;&ndash;&gt;-->
+
+                    <!--</li>-->
+                    <!--<li class="dropdown">-->
+                        <!--<a class="dropdown-toggle count-info" data-toggle="dropdown" href="table_data_tables.html#">-->
+                            <!--<i class="fa fa-bell"></i>  <span class="label label-primary">0</span>-->
+                        <!--</a>-->
+
+                        <!--&lt;!&ndash;待办提示&ndash;&gt;-->
+                        <!--&lt;!&ndash;<ul class="dropdown-menu dropdown-alerts">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<li>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<a href="mailbox.html">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<i class="fa fa-envelope fa-fw"></i> You have 16 messages&ndash;&gt;-->
+                        <!--&lt;!&ndash;<span class="pull-right text-muted small">4 minutes ago</span>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<li class="divider"></li>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+                    <!--</li>-->
+
+
+                    <!--<li>-->
+                        <!--<div class="dropdown" style="color: #888888">-->
+                            <!--<a class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="padding: 0;min-height: 0;background-color: #f3f3f4;border: none;">-->
+                                <!--系统管理员-->
+                                <!--<span class="caret"></span>-->
+                            <!--</a>-->
+                            <!--<ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="background-color:#f3f3f4 ">-->
+                                <!--<li><a href="#">我的信息</a></li>-->
+                                <!--<li><a href="login.html">退出</a></li>-->
+
+                            <!--</ul>-->
+                        <!--</div>-->
+                    <!--</li>-->
+                <!--</ul>-->
+
+            </nav>
+        </div>
+        <div class="row  border-bottom white-bg dashboard-header">
+
+            <div class="col-sm-3">
+                <h2>推送重点</h2>
+                <small>今日有12条重点推荐信息</small>
+                <ul class="list-group clear-list m-t">
+                    <li class="list-group-item fist-item">
+                        <a href="text_detail.html#">
+                              <span class="pull-right">
+                                    09:00 pm
+                                </span>
+                            <span class="label label-success">1</span> 开放共创繁荣 创新引领未来
+                        </a>
+
+                    </li>
+                    <li class="list-group-item fist-item">
+                        <a href="text_detail.html#">
+                              <span class="pull-right">
+                                    09:00 pm
+                                </span>
+                            <span class="label label-success">1</span> 开放共创繁荣 创新引领未来
+                        </a>
+
+                    </li>
+                    <li class="list-group-item fist-item">
+                        <a href="text_detail.html#">
+                              <span class="pull-right">
+                                    09:00 pm
+                                </span>
+                            <span class="label label-success">1</span> 开放共创繁荣 创新引领未来
+                        </a>
+
+                    </li>
+                    <li class="list-group-item fist-item">
+                        <a href="text_detail.html#">
+                              <span class="pull-right">
+                                    09:00 pm
+                                </span>
+                            <span class="label label-success">1</span> 开放共创繁荣 创新引领未来
+                        </a>
+
+                    </li><li class="list-group-item fist-item">
+                    <a href="text_detail.html#">
+                              <span class="pull-right">
+                                    09:00 pm
+                                </span>
+                        <span class="label label-success">1</span> 开放共创繁荣 创新引领未来
+                    </a>
+
+                </li>
+                    <li class="list-group-item fist-item">
+                        <a href="text_detail.html#">
+                              <span class="pull-right">
+                                    09:00 pm
+                                </span>
+                            <span class="label label-success">1</span> 开放共创繁荣 创新引领未来
+                        </a>
+
+                    </li>
+
+                </ul>
+            </div>
+            <div class="col-sm-6">
+                <div class="ibox float-e-margins">
+
+                    <div class="ibox-content ">
+                        <div class="carousel slide" id="carousel2">
+                            <ol class="carousel-indicators">
+                                <li data-slide-to="0" data-target="#carousel2"  class="active"></li>
+                                <li data-slide-to="1" data-target="#carousel2"></li>
+                                <li data-slide-to="2" data-target="#carousel2" class=""></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img alt="image"  class="img-responsive" src="../img/p_big1.jpg">
+                                    <div class="carousel-caption">
+                                        <p>这是文章的标题</p>
+                                    </div>
+                                </div>
+                                <div class="item ">
+                                    <img alt="image"  class="img-responsive" src="../img/p_big3.jpg">
+                                    <div class="carousel-caption">
+                                        <p>这是文章的标题</p>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img alt="image"  class="img-responsive" src="../img/p_big2.jpg">
+                                    <div class="carousel-caption">
+                                        <p>这是文章的标题</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <a data-slide="prev" href="carousel.html#carousel2" class="left carousel-control">
+                                <span class="icon-prev"></span>
+                            </a>
+                            <a data-slide="next" href="carousel.html#carousel2" class="right carousel-control">
+                                <span class="icon-next"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="statistic-box">
+                    <h4>
+                        我的推荐进度
+                    </h4>
+                    <p>
+                        存在2个已推荐，2个已审核
+                    </p>
+                    <div class="row text-center">
+                        <div class="col-lg-4">
+                            <div class="mto1">
+                                <strong style="line-height: 40px">2</strong>
+                            </div>
+                            <h5 >已推荐</h5>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="mto2">
+                                <strong style="line-height: 40px">2</strong>
+                            </div>
+                            <h5 >已审核</h5>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="mto3">
+                                <strong style="line-height: 40px">2</strong>
+                            </div>
+                            <h5 >已发布</h5>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="wrapper wrapper-content">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>我的文档</h5> <span class="label label-primary"></span>
+                                    <div class="ibox-tools">
+                                        <a class="collapse-link">
+                                            <i class="fa fa-chevron-up"></i>
+                                        </a>
+                                        <a  href="mytxt.html">
+                                            <i class="fa fa-pencil"></i>
+                                        </a>
+                                        <a class="close-link">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="ibox-content no-padding">
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <p><a class="text-info" href="index.html#">这里是标题很长的标题</a></p>
+                                            <small class="block text-muted"><i class="fa fa-clock-o"></i> 1天前</small>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <p><a class="text-info" href="index.html#">这里是标题很长的标题</a></p>
+                                            <small class="block text-muted"><i class="fa fa-clock-o"></i> 2天前</small>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <p><a class="text-info" href="index.html#">这里是标题很长的标题</a></p>
+                                            <small class="block text-muted"><i class="fa fa-clock-o"></i>2天前</small>
+                                        </li>
+                                        <li class="list-group-item ">
+                                            <p><a class="text-info" href="index.html#">这里是标题很长的标题</a></p>
+                                            <small class="block text-muted"><i class="fa fa-clock-o"></i> 2天前</small>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <p><a class="text-info" href="index.html#">这里是标题很长的标题</a></p>
+                                            <small class="block text-muted"><i class="fa fa-clock-o"></i> 2天前</small>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <p><a class="text-info" href="index.html#">这里是标题很长的标题</a></p>
+                                            <small class="block text-muted"><i class="fa fa-clock-o"></i> 20天前</small>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="col-lg-8">
+                             <div class="ibox float-e-margins">
+                                 <div class="ibox-title">
+                                     <h5>新时代学习大讲堂</h5>
+                                     <div class="ibox-tools">
+                                         <a class="collapse-link">
+                                             <i class="fa fa-chevron-up"></i>
+                                         </a>
+
+                                         <a class="close-link">
+                                             <i class="fa fa-times"></i>
+                                         </a>
+                                     </div>
+                                 </div>
+                                 <div class="ibox-content inspinia-timeline">
+                                     <div class="row m-t-sm">
+                                         <div class="col-lg-12">
+                                             <div class="panel blank-panel">
+                                                 <div class="panel-heading">
+                                                     <div class="panel-options">
+                                                         <ul class="nav nav-tabs">
+                                                             <li class="active"><a href="project_detail.html#tab-1" data-toggle="tab" aria-expanded="true">时代讲堂</a></li>
+                                                             <li class=""><a href="project_detail.html#tab-2" data-toggle="tab" aria-expanded="false">在线讲习</a></li>
+                                                             <li class=""><a href="project_detail.html#tab-3" data-toggle="tab" aria-expanded="false">农技咨询</a></li>
+                                                         </ul>
+                                                     </div>
+                                                 </div>
+
+                                                 <div class="panel-body">
+
+                                                     <div class="tab-content">
+                                                         <div class="tab-pane active" id="tab-1">
+                                                             <div class="feed-activity-list">
+                                                                 <div class="feed-element">
+                                                                     <a href="project_detail.html#" class="pull-left">
+                                                                         <img alt="image" class="img-circle" src="../img/2.jpg">
+                                                                     </a>
+                                                                     <div class="media-body ">
+                                                                         <small class="pull-right">2个小时</small>
+                                                                         <strong>时代讲堂标题一</strong><br>
+                                                                         <small class="text-muted">课程时长2个小时</small>
+                                                                         <div class="well">
+                                                                             新华社北京5月4日电（记者张晓松、黄小希）纪念马克思诞辰200周年大会4日上午在北京人民大会堂隆重举行。中共中央总书记、国家主席、中央军委主席习近平在会上发表重要讲话强调，我们纪念马克思，是为了向人类历史上最伟大的思想家致敬，也是为了宣示我们对马克思主义科学真理的坚定信念。
+                                                                         </div>
+                                                                     </div>
+                                                                 </div>
+                                                                 <div class="feed-element">
+                                                                     <a href="project_detail.html#" class="pull-left">
+                                                                         <img alt="image" class="img-circle" src="../img/2.jpg">
+                                                                     </a>
+                                                                     <div class="media-body ">
+                                                                         <small class="pull-right">2个小时</small>
+                                                                         <strong>时代讲堂标题一</strong><br>
+                                                                         <small class="text-muted">课程时长2个小时</small>
+                                                                         <div class="well">
+                                                                             新华社北京5月4日电（记者张晓松、黄小希）纪念马克思诞辰200周年大会4日上午在北京人民大会堂隆重举行。中共中央总书记、国家主席、中央军委主席习近平在会上发表重要讲话强调，我们纪念马克思，是为了向人类历史上最伟大的思想家致敬，也是为了宣示我们对马克思主义科学真理的坚定信念。
+                                                                         </div>
+                                                                     </div>
+                                                                 </div>
+                                                                 <div class="feed-element">
+                                                                     <a href="project_detail.html#" class="pull-left">
+                                                                         <img alt="image" class="img-circle" src="../img/2.jpg">
+                                                                     </a>
+                                                                     <div class="media-body ">
+                                                                         <small class="pull-right">2个小时</small>
+                                                                         <strong>时代讲堂标题一</strong><br>
+                                                                         <small class="text-muted">课程时长2个小时</small>
+                                                                         <div class="well">
+                                                                             新华社北京5月4日电（记者张晓松、黄小希）纪念马克思诞辰200周年大会4日上午在北京人民大会堂隆重举行。中共中央总书记、国家主席、中央军委主席习近平在会上发表重要讲话强调，我们纪念马克思，是为了向人类历史上最伟大的思想家致敬，也是为了宣示我们对马克思主义科学真理的坚定信念。
+                                                                         </div>
+                                                                     </div>
+                                                                 </div>
+                                                             </div>
+                                                         </div>
+                                                         <div class="tab-pane active" id="tab-2">
+                                                             <div class="feed-activity-list">
+                                                                 <div class="feed-element">
+                                                                     <a href="project_detail.html#" class="pull-left">
+                                                                         <img alt="image" class="img-circle" src="../img/2.jpg">
+                                                                     </a>
+                                                                     <div class="media-body ">
+                                                                         <small class="pull-right">2个小时</small>
+                                                                         <strong>在线讲习标题一</strong><br>
+                                                                         <small class="text-muted">课程时长2个小时</small>
+                                                                         <div class="well">
+                                                                             新华社北京5月4日电（记者张晓松、黄小希）纪念马克思诞辰200周年大会4日上午在北京人民大会堂隆重举行。中共中央总书记、国家主席、中央军委主席习近平在会上发表重要讲话强调，我们纪念马克思，是为了向人类历史上最伟大的思想家致敬，也是为了宣示我们对马克思主义科学真理的坚定信念。
+                                                                         </div>
+                                                                     </div>
+                                                                 </div>
+                                                                 <div class="feed-element">
+                                                                     <a href="project_detail.html#" class="pull-left">
+                                                                         <img alt="image" class="img-circle" src="../img/2.jpg">
+                                                                     </a>
+                                                                     <div class="media-body ">
+                                                                         <small class="pull-right">2个小时</small>
+                                                                         <strong>时代讲堂标题一</strong><br>
+                                                                         <small class="text-muted">课程时长2个小时</small>
+                                                                         <div class="well">
+                                                                             新华社北京5月4日电（记者张晓松、黄小希）纪念马克思诞辰200周年大会4日上午在北京人民大会堂隆重举行。中共中央总书记、国家主席、中央军委主席习近平在会上发表重要讲话强调，我们纪念马克思，是为了向人类历史上最伟大的思想家致敬，也是为了宣示我们对马克思主义科学真理的坚定信念。
+                                                                         </div>
+                                                                     </div>
+                                                                 </div>
+                                                                 <div class="feed-element">
+                                                                     <a href="project_detail.html#" class="pull-left">
+                                                                         <img alt="image" class="img-circle" src="../img/2.jpg">
+                                                                     </a>
+                                                                     <div class="media-body ">
+                                                                         <small class="pull-right">2个小时</small>
+                                                                         <strong>时代讲堂标题一</strong><br>
+                                                                         <small class="text-muted">课程时长2个小时</small>
+                                                                         <div class="well">
+                                                                             新华社北京5月4日电（记者张晓松、黄小希）纪念马克思诞辰200周年大会4日上午在北京人民大会堂隆重举行。中共中央总书记、国家主席、中央军委主席习近平在会上发表重要讲话强调，我们纪念马克思，是为了向人类历史上最伟大的思想家致敬，也是为了宣示我们对马克思主义科学真理的坚定信念。
+                                                                         </div>
+                                                                     </div>
+                                                                 </div>
+                                                             </div>
+                                                         </div>
+                                                         <div class="tab-pane" id="tab-3">
+                                                             <div class="row">
+                                                                 <div class="col-md-2">
+                                                                     <div class="ibox">
+                                                                         <div class="ibox-content product-box">
+                                                                             <div class="product-imitation11">
+                                                                                 <a href="nongjizixun.html">党建</a>
+                                                                             </div>
+                                                                         </div>
+                                                                     </div>
+                                                                 </div>
+                                                                 <div class="col-md-2">
+                                                                     <div class="ibox">
+                                                                         <div class="ibox-content product-box">
+                                                                             <div class="product-imitation11"><a href="nongjizixun.html">农技</a></div>
+                                                                         </div>
+                                                                     </div>
+                                                                 </div>
+                                                                 <div class="col-md-2">
+                                                                     <div class="ibox">
+                                                                         <div class="ibox-content product-box">
+                                                                             <div class="product-imitation11"><a href="nongjizixun.html">医疗</a></div>
+                                                                         </div>
+                                                                     </div>
+                                                                 </div>
+                                                                 <div class="col-md-2">
+                                                                     <div class="ibox">
+                                                                         <div class="ibox-content product-box">
+                                                                             <div class="product-imitation11"><a href="nongjizixun.html">教育</a></div>
+                                                                         </div>
+                                                                     </div>
+                                                                 </div>
+                                                                 <div class="col-md-2">
+                                                                     <div class="ibox">
+                                                                         <div class="ibox-content product-box">
+                                                                             <div class="product-imitation11"><a href="nongjizixun.html">法律</a></div>
+                                                                         </div>
+                                                                     </div>
+                                                                 </div>
+                                                                 <div class="col-md-2">
+                                                                     <div class="ibox">
+                                                                         <div class="ibox-content product-box">
+                                                                             <div class="product-imitation11"><a href="nongjizixun.html">其他</a></div>
+                                                                         </div>
+                                                                     </div>
+                                                                 </div>
+
+                                                             </div>
+
+
+
+                                                         </div>
+                                                     </div>
+
+                                                 </div>
+
+                                             </div>
+                                         </div>
+                                     </div>
+
+                                 </div>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Mainly scripts -->
+<script src="../js/jquery-2.1.1.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<!-- Flot -->
+<script src="../js/plugins/flot/jquery.flot.js"></script>
+<script src="../js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+<script src="../js/plugins/flot/jquery.flot.spline.js"></script>
+<script src="../js/plugins/flot/jquery.flot.resize.js"></script>
+<script src="../js/plugins/flot/jquery.flot.pie.js"></script>
+
+<!-- Peity -->
+<script src="../js/plugins/peity/jquery.peity.min.js"></script>
+<script src="../js/demo/peity-demo.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="../js/inspinia.js"></script>
+<script src="../js/plugins/pace/pace.min.js"></script>
+
+<!-- jQuery UI -->
+<script src="../js/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+<!-- GITTER -->
+<script src="../js/plugins/gritter/jquery.gritter.min.js"></script>
+
+<!-- Sparkline -->
+<script src="../js/plugins/sparkline/jquery.sparkline.min.js"></script>
+
+<!-- Sparkline demo data  -->
+<script src="../js/demo/sparkline-demo.js"></script>
+
+<!-- ChartJS-->
+<script src="../js/plugins/chartJs/Chart.min.js"></script>
+
+<!-- Toastr -->
+<script src="../js/plugins/toastr/toastr.min.js"></script>
+
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-4625583-2', 'webapplayers.com');
+    ga('send', 'pageview');
+
+</script>
+</body>
+</html>

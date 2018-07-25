@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>六盘水党建云</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Toastr style -->
+    <link href="../css/plugins/toastr/toastr.min.css" rel="stylesheet">
+
+    <!-- Gritter -->
+    <link href="../js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <script src="../js/angularjs/angular.min.js"></script>
+    <script src="https://cdn.bootcss.com/angular.js/1.5.0-beta.0/angular-sanitize.min.js"></script>
+    <style>
+        #edui1_toolbarbox{
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl"  data-ng-init="load()">
+<div id="wrapper">
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element">
+                        <h3 style="color: white;font-size: 22px">
+                            <img src="img/login.png" style="width: 50px;height: auto">
+                            六盘水党建云
+                        </h3>
+                    </div>
+                    <div class="logo-element">
+                        党建云
+                    </div>
+                </li>
+                <li class="active">
+                    <a href="article_home.html" target="_self"><i class="fa fa-th-large"></i> <span class="nav-label">网上讲习所</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li class="active"><a href="article_home.html" target="_self">文章管理</a></li>
+                        <li><a href="article_type.html" target="_self">文章类型</a></li>
+                        <!--<li><a href="article_comment.html" target="_self">评论管理</a></li>-->
+                    </ul>
+                </li>
+                <li >
+                    <a href="village_home.html" target="_self"><i class="fa fa-th-large"></i> <span class="nav-label">党建大数据</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="village_home.html" target="_self">党支部管理</a></li>
+                        <li><a href="ganbu_manage.html" target="_self">驻村干部管理</a></li>
+                        <li><a href="flags_piao.html" target="_self">党建地图</a></li>
+                    </ul>
+                </li>
+
+                <!-- <li>
+                    <a href="flags_piao.html" target="_self"><i class="fa fa-diamond"></i> <span class="nav-label">党建地图</span></a>
+                </li> -->
+
+                <!--<li>-->
+                <!--<a href="news_manage.html" target="_self"><i class="fa fa-diamond"></i> <span class="nav-label">党建新闻管理</span></a>-->
+                <!--</li>-->
+                <!--<li>-->
+                <!--<a href="three_sessions.html" target="_self"><i class="fa fa-diamond"></i> <span class="nav-label">三会一课</span></a>-->
+                <!--</li>-->
+                <li>
+                    <a href="table_data_tables.html#" target="_self"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">云学习中心</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <!-- <li><a href="graph_flot.html" target="_self">教学资源</a></li> -->
+                        <li><a href="examination_paper_list.html" target="_self">考试管理</a></li>
+                        <li><a href="test_manage.html" target="_self">考试题管理</a></li>
+                        <li><a href="study_credit_list.html" target="_self">在线学习学分配置</a></li>
+                        <!-- <li><a href="graph_chartjs.html" target="_self">活动开展情况</a></li> -->
+                    </ul>
+                </li>
+                <!--<li>-->
+                <!--<a href="#" target="_self"><i class="fa fa-wrench"></i> <span class="nav-label">系统管理</span><span class="fa arrow"></span></a>-->
+                <!--<ul class="nav nav-second-level collapse" >-->
+                <!--<li><a href="#" target="_self">系统配置</a></li>-->
+                <!--<li><a href="#" target="_self">权限管理</a></li>-->
+                <!--<li><a href="login.html" target="_self">退出</a></li>-->
+                <!--</ul>-->
+                <!--</li>-->
+
+            </ul>
+
+        </div>
+    </nav>
+
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="article_detail.html"><i class="fa fa-bars"></i> </a>
+                    <form role="search" class="navbar-form-custom" >
+                        <div class="form-group">
+                            <input type="text"  class="form-control" name="top-search" id="top-search">
+                        </div>
+                    </form>
+                </div>
+            </nav>
+        </div>
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12 animated fadeInRight">
+                    <div class="mail-box-header">
+                        <!--<div class="pull-right tooltip-demo">-->
+                        <!--<a href="#" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="推荐"><i class="fa fa-thumbs-o-up"></i> 推荐</a>-->
+                        <!--<a href="#" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="打印"><i class="fa fa-print"></i></a>-->
+                        <!--<a href="#" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="删除"><i class="fa fa-trash-o"></i> </a>-->
+                        <!--</div>-->
+                        <h1>
+                            <strong>{{type_name}}</strong>
+                        </h1>
+                        <div class="mail-tools tooltip-demo m-t-md">
+
+
+                            <h2>
+                                <span class="font-noraml"></span>{{title}}
+                            </h2>
+                            <h3>
+                                <span class="font-noraml">文章摘要: </span>{{abstract}}
+                            </h3>
+                            <h4>
+                                <span class="pull-right font-noraml"> 创建时间：{{created}}</span>
+                                <span class="font-noraml">学分: </span>{{period}}
+                                <span class="font-noraml" style="margin-left: 30px">作者: </span>{{author}}
+                            </h4>
+                            <h5>
+                                <span class="pull-right font-noraml"> 更新时间：{{updated}}</span>
+                                <span class="font-noraml">编写人: </span>{{user_id}}
+                            </h5>
+                            <h5>
+                                <!--<span class="pull-right font-noraml"> 文章来源：{{source}}</span>-->
+                                <span class="font-noraml">文章来源: </span>{{source}}
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="mail-box">
+                        <div class="mail-body">
+                            <!--<script id="editor" name="content" ng-model="content" initialContent="content"  type="text/plain" class="ued"></script>-->
+
+
+                            <p ng-bind-html="content|showAsHtml"></p>
+                        </div>
+                        <div class="mail-attachment">
+                            <p>
+                                <span><i class="fa fa-paperclip"></i>附件 -<small>封面图</small> </span>
+                                <!--<a href="#">全部下载</a>-->
+                                <!--|-->
+                                <!--<a href="#">查看所有图片</a>-->
+                            </p>
+
+                            <div class="attachment">
+                                <div class="file-box" ng-show="cover!=''">
+                                    <div class="file-name">
+                                        <img src="{{cover}}" style="width: 240px;height: auto">
+                                    </div>
+                                </div>
+                                <div class="file-box" ng-show="medias[0].media_type!=undefined">
+                                    <div class="file" ng-repeat="im in medias">
+                                        <a href="#">
+                                            <span class="corner"></span>
+
+                                            <div class="icon">
+                                                <i class="fa fa-file"></i>
+                                            </div>
+                                            <div class="file-name">
+                                                {{im.media_type}}
+                                                <br/>
+                                                <small>{{im.created}}</small>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="mail-attachment" ng-show="questionShow!=0">
+                            <div>
+                                <strong style="margin-top: 8px;">是否显示试题：</strong><input type="checkbox" style="width: 20px;height: 20px" name="video" ng-model="video" ng-change="shifousshiti()">
+                            </div>
+                            <div class="attachment" ng-show="isShow" style="margin-top: 20px">
+                                <p>
+                                    <span>练习题</span>
+                                </p>
+                                <ol>
+                                    <li ng-repeat="q in Article_question">
+                                        {{q.question}}
+                                    </li>
+                                </ol>
+
+                            </div>
+                        </div>
+
+                        <div class="mail-attachment" ng-show="aqShow!=0">
+                            <div>
+                                <strong style="margin-top: 8px;">是否显示心得：</strong><input type="checkbox" style="width: 20px;height: 20px" name="xingde" ng-model="xingde" ng-change="shifouxingde()">
+                            </div>
+                            <div class="attachment" ng-show="isshowtime"  style="margin-top: 20px">
+                                <p>
+                                    <span>心得</span>
+                                </p>
+                                <ol>
+                                    <li ng-repeat="c in Article_aq">
+                                        {{c.author}}：{{c.content}}
+                                    </li>
+                                </ol>
+
+                            </div>
+                        </div>
+
+                        <div class="mail-body text-right tooltip-demo">
+                            <a class="btn btn-sm btn-white"  ng-click="fanhui()"><i class="fa fa-mail-reply-all"></i> 返回</a>
+                            <!--<a class="btn btn-sm btn-white" href="text_detail.html"><i class="fa fa-share-alt"></i> 分享</a>-->
+                            <!--<button title="" data-placement="top" data-toggle="tooltip" type="button" data-original-title="Print" class="btn btn-sm btn-white"><i class="fa fa-print"></i> 打印</button>-->
+                            <!--<button title="" data-placement="top" data-toggle="tooltip" data-original-title="Trash" class="btn btn-sm btn-white"><i class="fa fa-trash-o"></i> 删除</button>-->
+                        </div>
+                        <div class="clearfix"></div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+<!-- Mainly scripts -->
+<script src="../js/jquery-2.1.1.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<!-- Flot -->
+<script src="../js/plugins/flot/jquery.flot.js"></script>
+<script src="../js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+<script src="../js/plugins/flot/jquery.flot.spline.js"></script>
+<script src="../js/plugins/flot/jquery.flot.resize.js"></script>
+<script src="../js/plugins/flot/jquery.flot.pie.js"></script>
+
+<!-- Peity -->
+<script src="../js/plugins/peity/jquery.peity.min.js"></script>
+<script src="../js/demo/peity-demo.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="../js/inspinia.js"></script>
+<script src="../js/plugins/pace/pace.min.js"></script>
+
+<!-- jQuery UI -->
+<script src="../js/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+<!-- GITTER -->
+<script src="../js/plugins/gritter/jquery.gritter.min.js"></script>
+
+<!-- Sparkline -->
+<script src="../js/plugins/sparkline/jquery.sparkline.min.js"></script>
+
+<!-- Sparkline demo data  -->
+<script src="../js/demo/sparkline-demo.js"></script>
+
+<!-- ChartJS-->
+<script src="../js/plugins/chartJs/Chart.min.js"></script>
+
+<!-- Toastr -->
+<script src="../js/plugins/toastr/toastr.min.js"></script>
+
+
+<!--Ueditor-->
+<script type="text/javascript"  charset="utf-8" src="js/utf8-php/ueditor.config.js"></script>
+<script type="text/javascript"  charset="utf-8" src="js/utf8-php/ueditor.all.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/utf8-php/lang/zh-cn/zh-cn.js"></script>
+
+<!--<script src="js/article_list1.js"></script>-->
+<script>
+    var app = angular.module('myApp', ['ngSanitize']);
+    app.controller('myCtrl',
+        function($scope, $http,$sce) {
+            var Request = new UrlSearch(); //实例化
+            $scope.username=Request.xingming;
+            localStorage.setItem("login_user_name",$scope.username);
+            $scope.login_user_name=localStorage.getItem("login_user_name");
+            $scope.article_id=Request.article_id;
+            $scope.type_id=Request.type_id;
+            $scope.isShow=false;
+            $scope.isshowtime=false;
+            $scope.load=function(){
+                $http.get("http://api.lpszzb.gov.cn/article/"+$scope.article_id)
+                    .then(function (res) {
+                        $scope.type_name=res.data.type_name
+                        $scope.title=res.data.title
+                        $scope.created=res.data.created
+                        $scope.updated=res.data.updated
+                        $scope.period=res.data.period
+                        $scope.author=res.data.author
+                        $scope.source=res.data.source
+                        $scope.user_id=res.data.user_id
+                        $scope.abstract=res.data.abstract
+                        $scope.cover=res.data.cover
+                        $scope.medias=res.data.medias
+                        $scope.content=HTMLDecode(res.data.content);
+                        $sce.trustAsHtml( $scope.content);
+                        function HTMLDecode(text) {
+                            var temp = document.createElement("div");
+                            temp.innerHTML = text;
+                            var output = temp.innerText || temp.textContent;
+                            temp = null;
+                            return output;
+                        }
+                    });
+
+                $scope.fanhui=function () {
+                    window.location.href="article_home.html"
+
+                }
+
+                getlianxiti()
+                getcomment()
+                //获取文章练习题
+                function getlianxiti() {
+                    $http.get("http://api.lpszzb.gov.cn/article/"+$scope.article_id+"/question")
+                        .then(function (res) {
+                            $scope.Article_question=res.data.rows
+                            $scope.questionShow=$scope.Article_question.length
+                            console.log($scope.Article_question)
+                            console.log($scope.questionShow)
+                        });
+                }
+
+
+
+                //获取文章心得
+                function getcomment() {
+                    $http.get("http://api.lpszzb.gov.cn/article/"+$scope.article_id+"/aq")
+                        .then(function (res) {
+                            $scope.Article_aq=res.data.aq
+                            console.log($scope.Article_aq)
+                            $scope.aqShow=$scope.Article_aq.length
+                        });
+                }
+            }
+
+
+
+            $scope.shifousshiti=function () {
+                if($scope.video==true){
+                    $scope.isShow=true;
+                }else {
+                    $scope.isShow=false;
+                }
+            }
+
+            $scope.shifouxingde=function () {
+                if($scope.xingde==true){
+                    $scope.isshowtime=true;
+                }else {
+                    $scope.isshowtime=false;
+                }
+            }
+
+
+
+
+            function UrlSearch() {
+                var name, value;
+                var str = location.href; //取得整个地址栏
+                console.log("地址="+str);
+                var num = str.indexOf("?");
+                str = str.substr(num + 1); //取得所有参数   stringvar.substr(start [, length ]
+
+                var arr = str.split("&"); //各个参数放到数组里
+                console.log("各个参数放到数组里="+arr);
+                for (var i = 0; i < arr.length; i++) {
+                    num = arr[i].indexOf("=");
+                    if (num > 0) {
+                        name = arr[i].substring(0, num);
+                        value = arr[i].substr(num + 1);
+                        this[name] = value;
+                    }
+                }
+            }
+        });
+    app.filter("showAsHtml",function($sce){
+        return function(input){
+            return $sce.trustAsHtml(input);
+        }
+    });
+
+</script>
+</body>
+</html>

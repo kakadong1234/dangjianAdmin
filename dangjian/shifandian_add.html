@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>智慧党建 | 党建示范点新增</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+
+    <link href="../css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+    <script src="../js/angularjs/angular.min.js"></script>
+
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl"  data-ng-init="load()">
+
+<div id="wrapper">
+
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element">
+                        <h1 style="color: white">智慧党建</h1>
+                    </div>
+                    <div class="logo-element">
+                        党建
+                    </div>
+                </li>
+                <li>
+                    <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">党建促脱贫</span> <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li>
+                            <a href="#">网上讲习所<span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                <li>
+                                    <a href="home.html">习近平新时代中国特色社会主义思想</a>
+                                </li>
+                                <li>
+                                    <a href="home_teach.html">新时代学习大讲堂</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <!-- <a href="#">驻村干部管理<span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                <li>
+                                    <a href="ganbu_manage.html#">人员管理</a>
+                                </li>
+                                <li>
+                                    <a href="daily_manage.html#">日常管理</a>
+                                </li>
+                                <li>
+                                    <a href="daily_service.html#">日常服务</a>
+                                </li>
+                            </ul> -->
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="flags_piao.html"><i class="fa fa-diamond"></i> <span class="nav-label">党旗飘飘</span></a>
+                </li>
+                <li class="active">
+                    <a href="flags_people.html"><i class="fa fa-diamond"></i> <span class="nav-label">党支部管理</span></a>
+                </li>
+                <li>
+                    <a href="news_manage.html"><i class="fa fa-diamond"></i> <span class="nav-label">党建新闻管理</span></a>
+                </li>
+                <li>
+                    <a href="three_sessions.html"><i class="fa fa-diamond"></i> <span class="nav-label">三会一课</span></a>
+                </li>
+                <li>
+                    <a href="table_data_tables.html#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">云学习中心</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                             <!-- <li><a href="graph_flot.html">教学资源</a></li> -->
+                        <li><a href="examination_paper_list.html">考试管理</a></li>
+                        <li><a href="test_manage.html">考试题管理</a></li>
+                        <li><a href="study_credit_list.html">在线学习学分配置</a></li>
+                        <!-- <li><a href="graph_chartjs.html">活动开展情况</a></li> -->
+                    </ul>
+                </li>
+                <!--<li>-->
+                    <!--<a href="#"><i class="fa fa-wrench"></i> <span class="nav-label">系统管理</span><span class="fa arrow"></span></a>-->
+                    <!--<ul class="nav nav-second-level collapse" >-->
+                        <!--<li><a href="#">系统配置</a></li>-->
+                        <!--<li><a href="#">权限管理</a></li>-->
+                        <!--<li><a href="login.html">退出</a></li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+
+            </ul>
+
+        </div>
+    </nav>
+
+    <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="shifandian_add.html"><i class="fa fa-bars"></i> </a>
+                    <form role="search" class="navbar-form-custom" action="search_results.html">
+                        <div class="form-group">
+                            <input type="text" placeholder="搜索..." class="form-control" name="top-search" id="top-search">
+                        </div>
+                    </form>
+                </div>
+                <!--<ul class="nav navbar-top-links navbar-right">-->
+                    <!--<li>-->
+                        <!--<span class="m-r-sm text-muted welcome-message">欢迎来到智慧党建系统</span>-->
+                    <!--</li>-->
+                    <!--<li class="dropdown">-->
+                        <!--<a class="dropdown-toggle count-info" data-toggle="dropdown" href="table_data_tables.html#">-->
+                            <!--<i class="fa fa-envelope"></i>  <span class="label label-warning">0</span>-->
+                        <!--</a>-->
+
+                        <!--&lt;!&ndash;邮件信息&ndash;&gt;-->
+                        <!--&lt;!&ndash;<ul class="dropdown-menu dropdown-messages">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<li>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="dropdown-messages-box">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<a href="profile.html" class="pull-left">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<img alt="image" class="img-circle" src="img/a7.jpg">&ndash;&gt;-->
+                        <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="media-body">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<small class="pull-right">46h ago</small>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<strong>Mike Loreipsum</strong> started following <strong>Monica Smith</strong>. <br>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<li class="divider"></li>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+                        <!--&lt;!&ndash;&ndash;&gt;-->
+
+                    <!--</li>-->
+                    <!--<li class="dropdown">-->
+                        <!--<a class="dropdown-toggle count-info" data-toggle="dropdown" href="table_data_tables.html#">-->
+                            <!--<i class="fa fa-bell"></i>  <span class="label label-primary">0</span>-->
+                        <!--</a>-->
+
+                        <!--&lt;!&ndash;待办提示&ndash;&gt;-->
+                        <!--&lt;!&ndash;<ul class="dropdown-menu dropdown-alerts">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<li>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<a href="mailbox.html">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<i class="fa fa-envelope fa-fw"></i> You have 16 messages&ndash;&gt;-->
+                        <!--&lt;!&ndash;<span class="pull-right text-muted small">4 minutes ago</span>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<li class="divider"></li>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+                    <!--</li>-->
+
+
+                    <!--<li>-->
+                        <!--<div class="dropdown" style="color: #888888">-->
+                            <!--<a class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="padding: 0;min-height: 0;background-color: #f3f3f4;border: none;">-->
+                                <!--系统管理员-->
+                                <!--<span class="caret"></span>-->
+                            <!--</a>-->
+                            <!--<ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="background-color:#f3f3f4 ">-->
+                                <!--<li><a href="#">我的信息</a></li>-->
+                                <!--<li><a href="login.html">退出</a></li>-->
+
+                            <!--</ul>-->
+                        <!--</div>-->
+                    <!--</li>-->
+                <!--</ul>-->
+
+            </nav>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>新增党支部及党建示范点：<small>在此填写问题...</small></h5>
+                        </div>
+                        <div class="ibox-content">
+                            <form target="uploadIframe" >
+                                <div class="row">
+                                    <div class="col-md-4 b-r"><h3 class="m-t-none m-b"></h3>
+                                        <!--<p>Sign in today for more expirience.</p>-->
+                                        <div >
+                                            <div class="form-group"><label>党支部名称：</label> <input type="text"  class="form-control"  ng-model="mingchen" id="date1"></div>
+                                            <div class="form-group"><label>党支部地址：</label> <input type="text"  class="form-control" ng-model="dizhi"  id="date2"></div>
+                                            <div class="form-group"><label>是否示范点：</label>
+                                                <select class="form-control" tabindex="1" aria-hidden="true" ng-model="aaa">
+                                                    <option  value="0" >否</option>
+                                                    <option value="1">是</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-5" style="padding: 0px">
+                                                    <label>经度：</label>
+                                                    <input type="text"  class="form-control"  id="date3" ng-model="jingdu">
+                                                </div>
+                                                <div class="col-md-2"></div>
+                                                <div class="col-md-5" style="padding: 0px">
+                                                    <label>纬度：</label>
+                                                    <input type="text"  class="form-control"  id="date4" ng-model="weidu">
+                                                </div>
+                                            </div>
+                                            <div class="form-group" >
+                                                <div class="col-md-5" style="padding: 0px">
+                                                    <label>第一书记：</label>
+                                                    <input type="text"  class="form-control"  id="date5" ng-model="shuji">
+                                                </div>
+                                                <div class="col-md-2"></div>
+                                                <div class="col-md-5" style="padding: 0px">
+                                                    <label>支部电话：</label>
+                                                    <input type="text"  class="form-control"  id="date6" ng-model="dianhua">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-6" style="padding: 0px;text-align: left;margin-top: 16px;">
+                                            <label><strong style="color: red">温馨提示：</strong><small style="font-weight: normal">从下方查询获取经纬度</small></label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-8">
+                                        <div class="col-md-12"><h4>党支部简介：</h4>
+                                            <textarea class="col-md-12 form-control" style="height: 60px;" placeholder="在此填写简介..." ng-model="jianjie"></textarea>
+                                        </div>
+                                        <div class="col-md-12" style="margin-top: 10px"><h4>党支部详情：</h4>
+                                            <script id="editor"  type="text/plain" class="ued" name="content" ></script>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="col-md-4 col-md-offset-10">
+                                            <a><button class="btn btn-white" ng-click="quxiaoadd()">取消</button></a>
+                                            <button class="btn btn-primary"   ng-click="tijiao()">提交</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="row" style="margin-top: 20px">
+                            <!--<div id="mapcontent" style="height:560px;width: 100%"></div>-->
+                            <iframe style="height:560px;width: 100%;border: none" src="getlnglat.html"></iframe>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+<!-- Mainly scripts -->
+<script src="../js/jquery-2.1.1.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="../js/inspinia.js"></script>
+<script src="../js/plugins/pace/pace.min.js"></script>
+
+<!-- iCheck -->
+<script src="../js/plugins/iCheck/icheck.min.js"></script>
+
+
+<!--Ueditor-->
+<script type="text/javascript"  charset="utf-8" src="js/utf8-php/ueditor.config.js"></script>
+<script type="text/javascript"  charset="utf-8" src="js/utf8-php/ueditor.all.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/utf8-php/lang/zh-cn/zh-cn.js"></script>
+
+<!--<script rel="stylesheet" src="js/shifandian_add.js"></script>-->
+
+</body>
+
+
+<script type="text/javascript">
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl',
+        function($scope, $http) {
+            var Request = new UrlSearch(); //实例化
+            // 这里是把原来的 getActionUrl 方法备份 到 _bkGetActionUrl
+            UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
+            UE.Editor.prototype.getActionUrl = function (action) {
+                // body...
+                //拦截这两个，其他的不拦截,调用备份
+                if (action == 'uploadimage' || action == 'uploadfile') {
+                    return "https://dangjain.ishoubei.com/upload";
+                } else{
+                    return this._bkGetActionUrl.call(this, action);
+                }
+            };
+            
+            //实例化编辑器
+            //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+            var ue = UE.getEditor('editor',{
+                allHtmlEnabled: false,//提交到后台的数据是否包含整个html字符串
+                autoHeightEnabled: false,
+                autoFloatEnabled: true,
+                allowDivTransToP: false, //阻止div标签自动转换为p标签,
+                initialFrameHeight:260
+            });
+//            $scope.tijiao=function () {
+//                console.log("开始提交")
+//                console.log($scope.mingchen)
+//                console.log($scope.dizhi)
+//                console.log($scope.aaa)
+//                console.log($scope.jingdu)
+//                console.log($scope.weidu)
+//                console.log($scope.jianjie)
+//
+//                $scope.data1 = {
+//                    pb_name:$scope.mingchen,
+//                    pb_address:$scope.dizhi,
+//                    pb_pattern:parseInt($scope.aaa),
+//                    longitude:parseFloat($scope.jingdu),
+//                    latitude:parseFloat($scope.weidu),
+//                    pb_desc:ue.getContent(),
+//
+//                };
+//                console.log($scope.data1)
+//                var url = "https://dangjain.ishoubei.com/party";
+//                var transFn = function (data) { return $.param(data) },
+//                    postCfg = { headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' }, transformRequest: transFn };
+//                $http.post(url,$scope.data1,postCfg).success(function (res) {
+////                    window.location.href="flags_people.html"
+//                });
+//            }
+
+
+            $scope.tijiao=function () {
+                console.log("开始提交")
+                console.log($scope.mingchen)
+                console.log($scope.dizhi)
+                console.log($scope.aaa)
+                console.log($scope.jingdu)
+                console.log($scope.weidu)
+                console.log($scope.jianjie)
+                console.log($scope.shuji)
+                console.log($scope.dianhua)
+
+                $http({
+                    method:'post',
+                    url:'https://dangjain.ishoubei.com/party',
+                    data:{
+                        pb_name:$scope.mingchen,
+                        pb_address:$scope.dizhi,
+                        pb_pattern:Number($scope.aaa),
+                        longitude:Number($scope.jingdu),
+                        latitude:Number($scope.weidu),
+                        pb_desc:$scope.jianjie,
+                        pb_master:$scope.shuji,
+                        pb_phone:$scope.dianhua,
+                        pb_details:ue.getContent(),
+                    },
+                    headers:{'Content-Type': 'application/x-www-form-urlencoded'},
+                }).success(function(req){
+                    window.location.href='flags_people.html'
+                })
+
+            }
+            $scope.quxiaoadd=function () {
+                window.location.href="flags_people.html"
+            }
+
+
+
+            function UrlSearch() {
+                var name, value;
+                var str = location.href; //取得整个地址栏
+                console.log("地址="+str);
+                var num = str.indexOf("?");
+                str = str.substr(num + 1); //取得所有参数   stringvar.substr(start [, length ]
+
+                var arr = str.split("&"); //各个参数放到数组里
+                console.log("各个参数放到数组里="+arr);
+                for (var i = 0; i < arr.length; i++) {
+                    num = arr[i].indexOf("=");
+                    if (num > 0) {
+                        name = arr[i].substring(0, num);
+                        value = arr[i].substr(num + 1);
+                        this[name] = value;
+                    }
+                }
+            }
+        });
+</script>
+
+</html>
