@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>六盘水党建云</title>
+    <script src="../../js/angularjs/angular.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl" data-ng-init="load()">
+    <navdirective></navdirective>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl',
+            function ($scope, $http) {
+                $scope.load = function () {
+
+                }
+            });
+
+
+        app.directive("navdirective", function () {
+            return {
+                //通过设置项来定义 
+                restrict: "EACM",
+                replace: true,
+                // template: "<p>helloWorld</p>",
+                templateUrl: "component/nav.html",
+                controller: function ($scope) {
+                    // 应该是全局的变量
+                    var constNavIntemData = [{
+                        title: '网上讲习所',
+                        sort: 1,
+                        children: [
+                            {
+                                title: '文章管理',
+                                url: 'article_home.html',
+                                sort: 1,
+                            },
+                            {
+                                title: '文章类型',
+                                url: 'article_type.html',
+                                sort: 2
+                            }
+                        ]
+                    },
+                    {
+                        title: '党建大数据',
+                        sort: 2,
+                        children: [
+                            {
+                                title: '党支部管理',
+                                url: 'village_home.html',
+                                sort: 1
+                            },
+                            {
+                                title: '驻村干部管理',
+                                url: 'ganbu_manage.html',
+                                sort: 2
+                            },
+                            {
+                                title: '党建地图',
+                                url: 'flags_piao.html',
+                                sort: 3
+                            }
+                        ]
+                    },
+
+                    {
+                        title: '云学习中心',
+                        sort: 3,
+                        children: [
+                            {
+                                title: '考试管理',
+                                url: 'examination_paper_list.html',
+                                sort: 1
+                            },
+                            {
+                                title: '考试题管理',
+                                url: 'test_manage.html',
+                                sort: 2
+                            },
+                            {
+                                title: '在线学习学分配置',
+                                url: 'study_credit_list.html',
+                                sort: 3
+                            }
+                        ]
+                    },
+
+                    ]
+                    // 应该是在登录的时候就从后台 api获取到, 存储在缓存中
+                    var rightList = [ //权限
+                        
+                    ]
+                    //当前选择 - 每个页面不一样的
+                    var activeList = [
+                        '网上讲习所',
+                        '文章管理'
+                    ]
+                    // step one: add active 
+                    constNavIntemData = constNavIntemData.map(function(item){
+                        var activeItem = activeList.find(function(itemTitle){
+                            return itemTitle === item.title
+                        })
+                        if(activeItem){
+                            item.active = 'active'
+                        }
+                        if(item.children){
+                            item.children = item.children.map(function(cItem){
+                                var aItem = activeList.find(function(itemTitle){
+                                    return itemTitle === cItem.title
+                                })
+                                if(aItem){
+                                    cItem.active = 'active'
+                                }
+                                return cItem
+                            })
+                        }
+                        return item
+                    })
+                        
+                    // step two: get rightNavList
+                
+
+                    $scope.lists = constNavIntemData
+                    console.log($scope.lists)
+
+                    // no user
+                    // $scope.isActive = function(item, lists){
+                    //     console.log(item.title)
+                    //     var activeItem = activeList.find(function(itemTitle){
+                    //         return itemTitle === item.title
+                    //     })
+                        
+                    //     var isActive = activeItem !== undefined && activeItem !== null
+                    //     console.log(isActive)
+                    //     return isActive
+                    // }
+                },
+                //渲染成功后的回调
+                link: function (scope, element, attrs) {
+                    console.log('success')
+                }
+            }
+        });
+
+
+    </script>
+
+</body>
+
+</html>
