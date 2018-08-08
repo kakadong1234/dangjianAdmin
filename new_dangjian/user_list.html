@@ -123,6 +123,51 @@
                         </div>
                         <div class="ibox-content">
 
+                            <form role="form"  id="form">
+                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title" id="myModalLabel">为{{user_name}}选择角色</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-container">
+                                                    <form id="icon_validate">
+                                                        <div class="row">
+                                                            <div class="modal-body">
+                                                                <div class="form-horizontal">
+                                                                    <div class="form-group">
+                                                                        <div class="col-md-12" >
+                                                                            <ol>
+                                                                                <li ng-repeat="x in roleList" style="font-weight: bold;font-size: 18px;">
+                                                                                    <small>{{x.role_name}}</small>
+                                                                                    <input ng-if="!isSelected(x.role_id)" type="checkbox" style="float: right;width: 16px;height: 16px;" value="{{x.role_id}}"  ng-click="roleClick(x)" name="check2" >
+                                                                                    <input ng-if="isSelected(x.role_id)" checked type="checkbox" style="float: right;width: 16px;height: 16px;" value="{{x.role_id}}"  ng-click="roleClick(x)" name="check2" >
+                                                                                </li>
+                                                                            </ol>
+                                                                        </div>
+                                                                    </div>
+
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer" style="text-align: center">
+                                                                <button type="button" ng-click="roleChangeClick()" class="btn btn-primary" >确认</button>
+                                                                <button type="button" ng-click="onCancel()" class="btn-white" >取消</button>
+                                                            </div> 
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+
                             <div class="table-responsive">
                                 <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
 
@@ -131,26 +176,26 @@
                                         <thead>
                                         <tr role="row">
                                             <th class="sorting_asc" style="text-align: center">姓名</th>
-                                            <th class="sorting_asc" style="text-align: center">个人简介</th>
+                                            <!-- <th class="sorting_asc" style="text-align: center">个人简介</th> -->
                                             <!--<th class="sorting_asc" style="text-align: center">个人详情</th>-->
-                                            <th class="sorting_asc" style="text-align: center">地址</th>
+                                            <!-- <th class="sorting_asc" style="text-align: center">地址</th>
                                             <th  style="text-align: center">经度</th>
-                                            <th  style="text-align: center">纬度</th>
+                                            <th  style="text-align: center">纬度</th> -->
                                             <th  style="text-align: center">创建时间</th>
-                                            <th  style="text-align: center">操作</th>
+                                            <th  style="text-align: center">角色设置</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <tr class="gradeA odd" role="row" ng-repeat="x  in lists">
                                             <td style="text-align: center" ng-click="onClick(x.user_id)">{{x.user_name}}</td>
-                                            <td style="text-align: center" ng-click="onClick(x.user_id)">{{x.pb_desc}}</td>
+                                            <!-- <td style="text-align: center" ng-click="onClick(x.user_id)">{{x.pb_desc}}</td> -->
                                             <!--<td style="text-align: center" ng-click="onClick(x.user_id)">{{x.pb_details}}</td>-->
-                                            <td style="text-align: center" ng-click="onClick(x.user_id)">{{x.address}}</td>
+                                            <!-- <td style="text-align: center" ng-click="onClick(x.user_id)">{{x.address}}</td>
                                             <td style="text-align: center" ng-click="onClick(x.user_id)">{{x.longitude}}</td>
-                                            <td style="text-align: center" ng-click="onClick(x.user_id)">{{x.latitude}}</td>
+                                            <td style="text-align: center" ng-click="onClick(x.user_id)">{{x.latitude}}</td> -->
                                             <td style="text-align: center" ng-click="onClick(x.user_id)">{{x.created}}</td>
                                             <td style="text-align: center">
-                                                <a href="zhucunganbu_update.html?user_id={{x.user_id}}" title="修改" style="margin-right: 12px;"><i class="fa fa-pencil-square-o" ></i></a>
+                                                <a title="设置角色" ng-click="setRoleClick(x.user_id, x.user_name)" style="margin-right: 12px;" data-toggle="modal" data-target="#myModal"><i class="fa fa-clipboard" ></i></a>
                                             </td>
                                         </tr>
                                         </tbody>
@@ -210,7 +255,7 @@
 
 <!-- Peity -->
 <script src="../js/demo/peity-demo.js"></script>
-<script src="js/ganbu_manage.js"></script>
+<script src="js/user_list.js"></script>
 
 <script>
     $(document).ready(function(){
