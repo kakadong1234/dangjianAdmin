@@ -35,6 +35,19 @@ app.controller('myCtrl',
         }
 
 
+        $scope.delRole = function(role_id){
+            var r=confirm("确定删除？");
+            if (r==true){
+                const url = $scope.baseUrl + "/role/" + role_id
+                $http.delete(url)
+                .then(function (res) {
+                    console.log(res)
+                    window.location.href = "role_list.html";
+                })
+            }else{
+                alert("已取消!");
+            }
+        }
 
         $scope.addRole = function () {
             const body = {role_name: $scope.role_name};

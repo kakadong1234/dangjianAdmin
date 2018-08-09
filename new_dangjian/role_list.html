@@ -228,7 +228,7 @@
                                         <tr role="row">
                                             <th class="sorting_asc" style="text-align: center">角色序号</th>
                                             <th class="sorting_asc" style="text-align: center">角色名称</th>
-                                            <th  style="text-align: center">权限设置</th>
+                                            <th  style="text-align: center">操作</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -237,6 +237,7 @@
                                             <td style="text-align: center" ng-click="onClick(x.role_id)">{{x.role_name}}</td>
                                             <td style="text-align: center">
                                                 <a title="设置权限" ng-click="setMenuClick(x.role_id, x.role_name)" style="margin-right: 12px;" data-toggle="modal" data-target="#myModal"><i class="fa fa-clipboard" ></i></a>
+                                                <a title="删除" ng-click="delRole(x.role_id)" style="margin-right: 12px;"><i class="fa fa-trash" ></i></a>
                                             </td>
                                         </tr>
                                         </tbody>
