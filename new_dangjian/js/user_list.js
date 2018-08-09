@@ -6,7 +6,8 @@ app.controller('myCtrl',
         localStorage.setItem("login_user_name",$scope.username);
         $scope.login_user_name=localStorage.getItem("login_user_name");
         $scope.page=1;
-        $scope.baseUrl = "http://192.168.0.110:8000";
+        // $scope.baseUrl = "http://192.168.0.110:8000";
+        $scope.baseUrl = "http://api.lpszzb.gov.cn";
         $scope.load=function(){
             getshuju($scope.page);
             $scope.downOnClick = function () {
