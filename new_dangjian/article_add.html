@@ -333,7 +333,8 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="col-md-4 col-md-offset-10">
-                                        <button   class="btn btn-sm btn-primary" data-toggle="tooltip"   ng-click="subtijiao()" >提交</button>
+                                        <button ng-if="isLoading==false" class="btn btn-sm btn-primary" data-toggle="tooltip"   ng-click="subtijiao()" >提交</button>
+                                        <button ng-if="isLoading==true" class="btn btn-sm btn-primary" data-toggle="tooltip"   ng-click="subtijiao()" disabled>提交</button>
                                         <a href="" class="btn btn-white btn-sm" data-toggle="tooltip" ng-click="fanhuishangcheng()">取消</a>
                                     </div>
                                 </div>
@@ -388,13 +389,6 @@
             $scope.banner=0;
             $scope.comment=0;
             $scope.recommend=0;
-
-
-
-
-
-
-
 //            $scope.user_id="142606654632975259";
             // 这里是把原来的 getActionUrl 方法备份 到 _bkGetActionUrl
             UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
@@ -451,9 +445,6 @@
             
 
             $scope.load=function () {
-
-
-
 //                默认当前时间
                     var newDate = new Date();
                     var month = newDate.getMonth() + 1;
@@ -466,8 +457,9 @@
                     }
                     var currentDate = newDate.getFullYear() + "-" + month + "-" + strDate
                         + " " + newDate.getHours() + ":" + newDate.getMinutes() + ":" + newDate.getSeconds();
-                $scope.pubtime=currentDate
-                
+                    $scope.pubtime=currentDate
+                    $scope.isLoading = false
+                    console.log($scope.isLoading)
 
 
                 //选择日期加时间
@@ -627,6 +619,8 @@
             $scope.type_id="";
             $scope.abstract="";
             $scope.subtijiao=function () {
+                $scope.isLoading = true
+                console.log($scope.isLoading)
                 console.log(fileurl)
                 if(fileurl==''){
                     fileurl='/static/files/20180628103815_cover.jpg'

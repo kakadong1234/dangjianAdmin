@@ -8,6 +8,8 @@ app.controller('myCtrl',
         localStorage.setItem("login_user_name", $scope.username);
         $scope.login_user_name = localStorage.getItem("login_user_name");
         $scope.load = function () {
+            $scope.isLoading = false
+            console.log($scope.isLoading)
             getArticleType($scope.id)
         }
 
@@ -17,6 +19,8 @@ app.controller('myCtrl',
         }
         // 编辑
         $scope.edit = function () {
+            $scope.isLoading = true
+            console.log($scope.isLoading)
             const data = {
                 type_name: $scope.type_name,
                 type_sort: $scope.type_sort,

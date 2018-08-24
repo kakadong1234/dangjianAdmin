@@ -246,7 +246,8 @@
                                     <div class="col-md-12">
                                         <div class="col-md-4 col-md-offset-10">
                                             <a><button class="btn btn-white" ng-click="quxiao()">取消</button></a>
-                                            <button class="btn btn-primary"   ng-click="tijiao()">提交</button>
+                                            <button ng-if="isLoading==false" class="btn btn-primary"   ng-click="tijiao()">提交</button>
+                                            <button ng-if="isLoading==true" class="btn btn-primary"   ng-click="tijiao()" disabled>提交</button>
                                         </div>
                                     </div>
                                 </div>
@@ -318,6 +319,8 @@
                 initialFrameHeight:260
             });
             $scope.load=function(){
+                $scope.isLoading = false
+                console.log($scope.isLoading)
                 $http.get("http://api.lpszzb.gov.cn/party/"+$scope.id)
                     .then(function (res) {
                         $scope.jianjie=res.data.pb_desc
@@ -348,7 +351,8 @@
             }
             $scope.tijiao=function () {
                 console.log("修改")
-
+                $scope.isLoading = true
+                console.log($scope.isLoading)
                 $http({
                     method:'post',
                     url:'http://api.lpszzb.gov.cn/party/'+$scope.id,

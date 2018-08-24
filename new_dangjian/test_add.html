@@ -251,7 +251,8 @@
                                     <div class="col-md-12 b-r" style="margin: 10px 0px">
                                         <div class="form-group">
                                             <div class=" text-right tooltip-demo">
-                                                <button  class="btn btn-sm btn-primary" data-toggle="tooltip" ng-click="submittijiao()" >提交</button>
+                                                <button ng-if="isLoading==false" class="btn btn-sm btn-primary" data-toggle="tooltip" ng-click="submittijiao()" >提交</button>
+                                                <button ng-if="isLoading==true" class="btn btn-sm btn-primary" data-toggle="tooltip" ng-click="submittijiao()" disabled>提交</button>
                                                 <a href="test_manage.html" class="btn btn-white btn-sm" data-toggle="tooltip">取消</a>
                                             </div>
                                         </div>
@@ -347,7 +348,8 @@
                                     <div class="col-md-12 b-r" style="margin: 10px 0px">
                                         <div class="form-group">
                                             <div class=" text-right tooltip-demo">
-                                                <button  class="btn btn-sm btn-primary" data-toggle="tooltip"  ng-click="danxuantijiao()">提交</button>
+                                                <button ng-if="isLoading==false" class="btn btn-sm btn-primary" data-toggle="tooltip"  ng-click="danxuantijiao()">提交</button>
+                                                <button ng-if="isLoading==true" class="btn btn-sm btn-primary" data-toggle="tooltip"  ng-click="danxuantijiao()" disabled>提交</button>
                                                 <a href="test_manage.html" class="btn btn-white btn-sm" data-toggle="tooltip">取消</a>
                                             </div>
                                         </div>

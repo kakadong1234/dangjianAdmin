@@ -330,7 +330,8 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="col-md-4 col-md-offset-10">
-                                        <button   class="btn btn-sm btn-primary" data-toggle="tooltip"   ng-click="subtijiao()" >提交</button>
+                                        <button ng-if="isLoading==false" class="btn btn-sm btn-primary" data-toggle="tooltip"   ng-click="subtijiao()" >提交</button>
+                                        <button ng-if="isLoading==true" class="btn btn-sm btn-primary" data-toggle="tooltip"   ng-click="subtijiao()" disabled>提交</button>
                                         <a href="" class="btn btn-white btn-sm" data-toggle="tooltip" ng-click="fanhuishangcheng()">取消</a>
                                     </div>
                                 </div>
@@ -441,7 +442,8 @@
                     }
                 })
 
-
+                $scope.isLoading = false
+                console.log($scope.isLoading)
                 $http.get("http://api.lpszzb.gov.cn/article/"+$scope.article_id)
                     .then(function (res) {
                         $scope.lists=res.data;
@@ -681,7 +683,8 @@
             }
 
             $scope.subtijiao=function () {
-
+                $scope.isLoading = true
+                console.log($scope.isLoading)
                 var httpurl="http://api.lpszzb.gov.cn"
                 var imageurl=httpurl+""+fileurl
                 if(imageurl="http://api.lpszzb.gov.cn"){

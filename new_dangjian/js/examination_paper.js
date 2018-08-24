@@ -21,6 +21,8 @@ app.controller('myCtrl',
         ]
         $scope.page = 1;
         $scope.load = function () {
+            $scope.isLoading = false
+            console.log($scope.isLoading)
             console.log(this)
             getExamPageList($scope.page);
             getInitList();
@@ -84,6 +86,8 @@ app.controller('myCtrl',
 
         // 创建
         $scope.create = function () {
+            $scope.isLoading = true
+            console.log($scope.isLoading)
             console.log($scope.questionTypeList)
             const questionSetting = {}
             $scope.questionTypeList.map(function (qSetting) {

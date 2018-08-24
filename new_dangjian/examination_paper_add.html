@@ -204,7 +204,8 @@
                                         <div class="col-md-12">
                                             <div class="col-md-4 col-md-offset-10">
                                                 <button class="btn btn-white" ng-click="cancel()">取消</button>
-                                                <button class="btn btn-primary" ng-click="create()">提交</button>
+                                                <button ng-if="isLoading==false" class="btn btn-primary" ng-click="create()">提交</button>
+                                                <button ng-if="isLoading==true" class="btn btn-primary" ng-click="create()" disabled>提交</button>
                                             </div>
                                         </div>
                                     </div>

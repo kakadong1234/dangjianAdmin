@@ -165,7 +165,8 @@
                                         </div>
                                         <div class="modal-footer" style="text-align: center">
                                             <button class="btn btn-white" ng-click="cancel()">返回</button>
-                                            <button class="btn btn-primary" ng-click="edit()">提交</button>
+                                            <button ng-if="isLoading==false" class="btn btn-primary" ng-click="edit()">提交</button>
+                                            <button ng-if="isLoading==true" class="btn btn-primary" ng-click="edit()" disabled>提交</button>
                                         </div>
                             </div>
                         </div>

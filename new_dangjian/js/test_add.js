@@ -8,6 +8,8 @@ app.controller('myCtrl',
         $scope.eqt_name="判断题";
         // $scope.user_id="142606654632975259";
         $scope.load=function () {
+            $scope.isLoading = false
+            console.log($scope.isLoading)
             //获取标签
             $http.get("http://api.lpszzb.gov.cn/exam/tags")
                 .then(function (res) {
@@ -46,6 +48,8 @@ app.controller('myCtrl',
             console.log($scope.eqt_name)
         }
         $scope.submittijiao=function () {
+            $scope.isLoading = true
+            console.log($scope.isLoading)
             console.log("判断题新增")
             console.log($scope.question)
             console.log($scope.answer)
@@ -72,6 +76,8 @@ app.controller('myCtrl',
 
 
         $scope.danxuantijiao=function () {
+            $scope.isLoading = true
+            console.log($scope.isLoading)
             console.log("单选题新增")
             console.log($scope.question)
             console.log($scope.answer)
