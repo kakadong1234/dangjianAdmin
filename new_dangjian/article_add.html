@@ -400,7 +400,7 @@
             UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
             UE.Editor.prototype.getActionUrl = function (action) {
                 //拦截这两个，其他的不拦截,调用备份
-                if (action == 'uploadimage' || action == 'uploadfile' || action == 'uploadVideo') {
+                if (action == 'uploadimage' || action == 'uploadfile' || action == 'uploadvideo') {
                     return "http://api.lpszzb.gov.cn/upload";
                 } else{
                     return this._bkGetActionUrl.call(this, action);
