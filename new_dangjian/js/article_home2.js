@@ -28,9 +28,11 @@ app.controller('myCtrl',
             type_fid: '',
             type_id:0,
         }]
-       var  page=1
-        $scope.page=1
-       var  status=1
+       var page=1
+       $scope.page=1
+       var status = getTabNumber()
+       $scope.status = status
+       console.log($scope.status)
         $scope.load=function () {        //获取数据api
             $http.get("http://api.lpszzb.gov.cn/exam/question?eqt_id=1")
                 .then(function (res) {
@@ -90,19 +92,25 @@ app.controller('myCtrl',
                 getshuju($scope.page,status,$scope.articleType.type_id)
             }
             $scope.onleixingClick1=function () {
-                status=1;
-                $scope.newsDangjian=$scope.articleType.type_name
-                getshuju($scope.page,status,$scope.articleType.type_id)
+                location.href = "article_home.html#tab-1"
+                window.location.reload()
+                // status=1;
+                // $scope.newsDangjian=$scope.articleType.type_name
+                // getshuju($scope.page,status,$scope.articleType.type_id)
             }
             $scope.onleixingClick2=function () {
-                status=2;
-                $scope.newsDangjian=$scope.articleType.type_name
-                getshuju($scope.page,status,$scope.articleType.type_id)
+                location.href = "article_home.html#tab-2"
+                window.location.reload()
+                // status=2;
+                // $scope.newsDangjian=$scope.articleType.type_name
+                // getshuju($scope.page,status,$scope.articleType.type_id)
             }
             $scope.onleixingClick5=function () {
-                status=5;
-                $scope.newsDangjian=$scope.articleType.type_name
-                getshuju($scope.page,status,$scope.articleType.type_id)
+                location.href = "article_home.html#tab-5"
+                window.location.reload()
+                // status=5;
+                // $scope.newsDangjian=$scope.articleType.type_name
+                // getshuju($scope.page,status,$scope.articleType.type_id)
             }
             $scope.downOnClick= function () {
                 if($scope.page<$scope.pagesLists){
@@ -167,7 +175,8 @@ app.controller('myCtrl',
                     $http.post("http://api.lpszzb.gov.cn/article/del/"+id)
                         .then(function (res) {
                             console.log("已删除")
-                            window.location.href='article_home.html'
+                            // window.location.href='article_home.html'
+                            window.location.reload()
                         })
                 }
                 else
@@ -186,6 +195,7 @@ app.controller('myCtrl',
 
                     $http.post("http://api.lpszzb.gov.cn/article/"+id+"?status=2")
                         .then(function (res) {
+                            location.href = "article_home.html#tab-2"
                             window.location.reload()
                         })
                 }
@@ -204,7 +214,9 @@ app.controller('myCtrl',
 
                     $http.post("http://api.lpszzb.gov.cn/article/"+id+"?status=5")
                         .then(function (res) {
-                            window.location.href='article_home.html'
+                            location.href = "article_home.html#tab-5"
+                            window.location.reload()
+                            // window.location.href='article_home.html'
                         })
                 }
                 else
@@ -268,5 +280,13 @@ app.controller('myCtrl',
                     this[name] = value;
                 }
             }
+        }
+        function getTabNumber() {
+            var tabLocation = location.href.indexOf("#")
+            if(tabLocation === -1) {
+                return 1
+            }
+            var subString = location.href.substr(tabLocation + 1)
+            return Number(subString.split('-')[1])
         }
     });
