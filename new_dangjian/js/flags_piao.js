@@ -32,7 +32,7 @@ app.controller('myCtrl',
 
 
             //党建示范点标记
-            $http.get("http://api.lpszzb.gov.cn/party?pb_pattern=1&page="+$scope.page)
+            $http.get("http://api.lpszzb.gov.cn/party?pb_pattern=1&platform=app&page="+$scope.page + "&limit=100000")
                 .then(function (res) {
                     var beizhu=[];
                     var list=[]
@@ -55,7 +55,7 @@ app.controller('myCtrl',
                     }
                     if(yeshu>1){
                         for(var a=2;a<=yeshu;a++){
-                            $http.get("http://api.lpszzb.gov.cn/party?pb_pattern=1&page="+a)
+                            $http.get("http://api.lpszzb.gov.cn/party?pb_pattern=1&platform=app&page="+a + "&limit=100000")
                                 .then(function (resp) {
                                     for (var i = 0; i < resp.data.rows.length; i++) {
                                         list.push([resp.data.rows[i].longitude, resp.data.rows[i].latitude]);
@@ -98,7 +98,7 @@ app.controller('myCtrl',
 
 
             //党支部分布
-            $http.get("http://api.lpszzb.gov.cn/party?pb_pattern=0&page="+$scope.page)
+            $http.get("http://api.lpszzb.gov.cn/party?pb_pattern=0&platform=app&page="+$scope.page + "&limit=100000")
                 .then(function (res) {
                     var beizhu=[];
                     var list=[]
@@ -123,7 +123,7 @@ app.controller('myCtrl',
                     }
                     if(yeshu>1){
                         for(var a=2;a<=yeshu;a++){
-                            $http.get("http://api.lpszzb.gov.cn/party?pb_pattern=0&page="+a)
+                            $http.get("http://api.lpszzb.gov.cn/party?pb_pattern=0&platform=app&page="+a + "&limit=100000")
                                 .then(function (resp) {
                                     for (var i = 0; i < resp.data.rows.length; i++) {
                                         list.push([
@@ -166,7 +166,7 @@ app.controller('myCtrl',
 
 
             //驻村干部
-            $http.get("http://api.lpszzb.gov.cn/cadre?page="+$scope.page)
+            $http.get("http://api.lpszzb.gov.cn/cadre?page="+$scope.page + "&platform=app&limit=100000" )
                 .then(function (res) {
                     var beizhu=[];
                     var list=[]
@@ -179,7 +179,7 @@ app.controller('myCtrl',
                     }
                     if(yeshu>1){
                         for(var a=2;a<=yeshu;a++){
-                            $http.get("http://api.lpszzb.gov.cn/cadre?page="+a)
+                            $http.get("http://api.lpszzb.gov.cn/cadre?page="+a + "&platform=app&limit=100000")
                                 .then(function (resp) {
                                     for (var i = 0; i < resp.data.rows.length; i++) {
                                         list.push([resp.data.rows[i].longitude, resp.data.rows[i].latitude]);
