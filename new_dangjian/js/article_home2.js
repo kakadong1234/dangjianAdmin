@@ -60,7 +60,7 @@ app.controller('myCtrl',
 
             //获取数据api
             function getshuju(pageID,status,type_id) {
-                $http.get("http://api.lpszzb.gov.cn/article?page="+pageID+"&status="+status+"&type_id="+type_id+"&limit=8")
+                $http.get("http://api.lpszzb.gov.cn/article?page="+pageID+"&status="+status+"&type_id="+type_id+"&limit=8&platform=pc")
                     .then(function (res) {
                         $scope.lists=res.data.rows;
                         $scope.total=res.data.total;
