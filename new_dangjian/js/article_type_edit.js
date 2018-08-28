@@ -58,7 +58,8 @@ app.controller('myCtrl',
                 data: $.param(data),
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             }).success(function (req) {
-                window.location.href = "article_type.html";
+                // window.location.href = "article_type.html";
+                window.history.go(-1);
             })
         }
 

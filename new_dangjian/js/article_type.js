@@ -4,6 +4,8 @@ app.controller('myCtrl',
         var Request = new UrlSearch(); //实例化
         var fileurl = "";
         var fileurl2 = "";
+        $scope.activeTab = getTabNumber()
+        console.log($scope.activeTab)
         $scope.corpid=localStorage.getItem("corpid");
         $scope.corp_name=localStorage.getItem("corp_name");
         $scope.userid=localStorage.getItem("user_id");
@@ -200,5 +202,13 @@ app.controller('myCtrl',
                     this[name] = value;
                 }
             }
+        }
+        function getTabNumber() {
+            var tabLocation = location.href.indexOf("#")
+            if(tabLocation === -1) {
+                return 1
+            }
+            var subString = location.href.substr(tabLocation + 1)
+            return Number(subString.split('-')[1])
         }
     });
