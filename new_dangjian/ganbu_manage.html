@@ -130,6 +130,7 @@
                                         <thead>
                                         <tr role="row">
                                             <th class="sorting_asc" style="text-align: center">姓名</th>
+                                            <th class="sorting_asc" style="text-align: center">干部类型</th>
                                             <th class="sorting_asc" style="text-align: center">个人简介</th>
                                             <!--<th class="sorting_asc" style="text-align: center">个人详情</th>-->
                                             <th class="sorting_asc" style="text-align: center">地址</th>
@@ -142,6 +143,7 @@
                                         <tbody>
                                         <tr class="gradeA odd" role="row" ng-repeat="x  in lists">
                                             <td style="text-align: center" ng-click="onClick(x.user_id)">{{x.user_name}}</td>
+                                            <td style="text-align: center" ng-click="onClick(x.user_id)">{{x.user_type}}</td>
                                             <td style="text-align: center" ng-click="onClick(x.user_id)">{{x.pb_desc}}</td>
                                             <!--<td style="text-align: center" ng-click="onClick(x.user_id)">{{x.pb_details}}</td>-->
                                             <td style="text-align: center" ng-click="onClick(x.user_id)">{{x.address}}</td>

@@ -124,6 +124,15 @@
                                         <!--<p>Sign in today for more expirience.</p>-->
                                         <div >
                                             <div class="form-group"><label>姓名：</label> <input type="text"  class="form-control"  ng-model="mingchen" id="date1" disabled="disabled" ></div>
+                                            <div class="form-group">
+                                                <label>干部类型：</label> 
+                                                <select class="form-control" name="user_type" ng-model="user_type">
+                                                    <option value="第一书记">第一书记</option>
+                                                    <option value="轮战干部">轮战干部</option>
+                                                    <option value="驻村干部">驻村干部</option>
+                                                </select>
+                                                <!-- <input type="text"  class="form-control"  ng-model="dizhi" > -->
+                                            </div>
                                             <div class="form-group"><label>个人简介：</label> <textarea type="text"  style="height: 60px" class="form-control"  ng-model="jianjie"  ></textarea></div>
                                             <div class="form-group"><label>地址：</label> <input type="text"  class="form-control"  ng-model="dizhi" ></div>
                                             <div class="form-group">
@@ -245,6 +254,7 @@
                         $scope.jingdu=res.data.longitude
                         $scope.weidu=res.data.latitude
                         $scope.dizhi=res.data.address
+                        $scope.user_type=res.data.user_type
                         $scope.content=HTMLDecode(res.data.pb_details);
                         function HTMLDecode(text) {
                             var temp = document.createElement("div");
@@ -274,6 +284,7 @@
                     address:$scope.dizhi,
                     pb_details:ue.getContent(),
                     pb_desc:$scope.jianjie,
+                    user_type: $scope.user_type,
                 };
                 var url = "http://api.lpszzb.gov.cn/cadre?user_id="+$scope.user_id
                 var transFn = function (data) { return $.param(data) },
