@@ -68,6 +68,10 @@ app.controller('myCtrl',
             window.location.href="shifandian_detail.html?pd_id="+pd_id+"&pb_pattern="+pb_pattern;
         }
 
+        $scope.search = function (page) {
+            search(page)
+        }
+
            //获取数据api
         function getshuju(pageID) {
             $http.get("http://api.lpszzb.gov.cn/party?page="+$scope.page)
@@ -102,12 +106,12 @@ app.controller('myCtrl',
             var key = $("#mySearch").val();
             console.log(key)
             $scope.searchContent = key
-            var url = "https://api.lpszzb.gov.cn/query/party/" + key + "?page=" + page + "&limit=10" 
-            $.get(url, function (res) {
-                console.log(res.data)
-                $scope.lists=res.data;
-                $scope.total=res.count;
-                $scope.pagesLists=Math.ceil($scope.total/10);;
+            $http.get("https://api.lpszzb.gov.cn/query/party/" + key + "?page=" + page + "&limit=10" )
+                .then(function (res) {
+                    console.log(res.data.data)
+                    $scope.lists=res.data.data;
+                    $scope.total=res.data.count;
+                    $scope.pagesLists=Math.ceil($scope.total/10);;
             });
         }
 

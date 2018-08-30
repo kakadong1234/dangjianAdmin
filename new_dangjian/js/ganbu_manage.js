@@ -55,10 +55,12 @@ app.controller('myCtrl',
 
 
         $scope.onClick = function (user_id) {
-
             window.location.href="zhucunganbu_detail.html?user_id="+user_id;
         }
 
+        $scope.search = function (page) {
+            search(page)
+        }
                     //获取数据api
         function getshuju(pageID) {
             $http.get("http://api.lpszzb.gov.cn/cadre?page="+$scope.page)
@@ -92,12 +94,11 @@ app.controller('myCtrl',
             var key = $("#mySearch").val();
             console.log(key)
             $scope.searchContent = key
-            var url = "https://api.lpszzb.gov.cn/query/user/" + key + "?page=" + page + "&limit=10" 
-            $.get(url, function (res) {
-                console.log(res.data)
-                $scope.lists=res.data;
-                $scope.total=res.count;
-                $scope.pagesLists=Math.ceil($scope.total/10);
+            $http.get("https://api.lpszzb.gov.cn/query/user/" + key + "?page=" + page + "&limit=10" )
+                    .then(function (res) {
+                        $scope.lists=res.data.data;
+                        $scope.total=res.data.count;
+                        $scope.pagesLists=Math.ceil($scope.total/10);
             });
         }
 
