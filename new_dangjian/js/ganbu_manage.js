@@ -6,31 +6,37 @@ app.controller('myCtrl',
         localStorage.setItem("login_user_name",$scope.username);
         $scope.login_user_name=localStorage.getItem("login_user_name");
         $scope.page=1;
+        $scope.searchContent = ''
+        $("#searhForm").on("submit", function () {
+            search(1);
+        });
+        $("#searhForm").on("input", function () {
+            textChange();
+        });
         $scope.load=function(){
             getshuju($scope.page);
             $scope.downOnClick = function () {
                 if($scope.page<$scope.pagesLists){
                     $scope.page = $scope.page+1;
-                    getshuju($scope.page);
+                    if($scope.searchContent === ''){
+                        getshuju($scope.page);
+                    }
+                    else {
+                        search($scope.page)
+                    }
                 }
             }
             $scope.upOnClick = function () {
                 if($scope.page>1) {
                     $scope.page = $scope.page - 1;
-                    getshuju($scope.page);
+                    if($scope.searchContent === ''){
+                        getshuju($scope.page);
+                    }
+                    else {
+                        search($scope.page)
+                    }
                 }
             }
-            //获取数据api
-            function getshuju(pageID) {
-                $http.get("http://api.lpszzb.gov.cn/cadre?page="+$scope.page)
-                    .then(function (res) {
-                        $scope.lists=res.data.rows;
-                        $scope.total=res.data.total;
-                        $scope.pagesLists=Math.ceil($scope.total/10);
-                    });
-            }
-
-
 
             $scope.deletearticle=function (user_id) {
                 console.log(user_id)
@@ -53,6 +59,15 @@ app.controller('myCtrl',
             window.location.href="zhucunganbu_detail.html?user_id="+user_id;
         }
 
+                    //获取数据api
+        function getshuju(pageID) {
+            $http.get("http://api.lpszzb.gov.cn/cadre?page="+$scope.page)
+                    .then(function (res) {
+                        $scope.lists=res.data.rows;
+                        $scope.total=res.data.total;
+                        $scope.pagesLists=Math.ceil($scope.total/10);
+            });
+        }
         function UrlSearch() {
             var name, value;
             var str = location.href; //取得整个地址栏
@@ -69,6 +84,32 @@ app.controller('myCtrl',
                     value = arr[i].substr(num + 1);
                     this[name] = value;
                 }
+            }
+        }
+
+        function search(page) {
+            console.log('search')
+            var key = $("#mySearch").val();
+            console.log(key)
+            $scope.searchContent = key
+            var url = "https://api.lpszzb.gov.cn/query/user/" + key + "?page=" + page + "&limit=10" 
+            $.get(url, function (res) {
+                console.log(res.data)
+                $scope.lists=res.data;
+                $scope.total=res.count;
+                $scope.pagesLists=Math.ceil($scope.total/10);
+            });
+        }
+
+        function textChange(){
+            console.log('textChange')
+            var key = $("#mySearch").val();
+            console.log(key)
+            $scope.searchContent = key
+            if (key === '') {
+                // reset data
+                $scope.page = 1
+                getshuju($scope.page);
             }
         }
     });

@@ -177,13 +177,16 @@
                         <div class="ibox-title">
                             <h5>党支部管理</h5>
                             <div class="ibox-tools">
+                                <form id="searhForm" action="#">
+                                    <input style="margin-right: 20px; width: 300px; height: 20px" type="search" id="mySearch" placeholder="搜索党支部" ng-model="searchContent">
+                                </form>
                                 <!--<a href="shifandian_add.html" class="collapse-link" title="新增">-->
                                     <!--<i class="fa fa-pencil"></i>-->
                                 <!--</a>-->
                             </div>
                         </div>
                         <div class="ibox-content">
-
+                                <a href="javascript:void(0)" class="weui-icon-clear" id="searchClear"   onClick="OnSearchCancel()"></a>
                             <div class="table-responsive">
                                 <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
 
