@@ -192,7 +192,7 @@ app.controller('myCtrl',
 
 
         $scope.showExam = function(ep_id) {
-            window.location.href = 'test.html?ep_id=' + ep_id
+            window.location.href = 'examPage.html?ep_id=' + ep_id
         }
 
         $scope.SelectAll = function(){
