@@ -191,6 +191,9 @@ app.controller('myCtrl',
         }
 
 
+        $scope.showExam = function(ep_id) {
+            window.location.href = 'test.html?ep_id=' + ep_id
+        }
 
         $scope.SelectAll = function(){
             if($scope.isAllSelected){

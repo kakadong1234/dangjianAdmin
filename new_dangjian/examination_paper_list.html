@@ -216,6 +216,10 @@
                                                         <a  ng-if="isNoSendStatus(examPage.ep_id)" ng-click="goToEditPage(examPage.ep_id)" title="修改" style="margin-right: 12px;">
                                                             <i class="fa fa-pencil-square-o"></i>
                                                         </a>
+                                                        <a  ng-if="isNoSendStatus(examPage.ep_id)" ng-click="goToEditPage(examPage.ep_id)" title="修改" style="margin-right: 12px;">
+                                                            <a title="查看试卷" ng-click="showExam(examPage.ep_id)" >
+                                                            <i class="fa fa-angellist"></i>
+                                                        </a>
                                                         <a title="删除" ng-click="delete(examPage.ep_id)">
                                                             <i class="fa fa-trash"></i>
                                                         </a>
