@@ -42,16 +42,16 @@ app.controller('myCtrl',
             }
         }
         // 发布
-        $scope.changeStatus = function(id){
+        $scope.changeStatus = function (id) {
             console.log('发布/取消发布');
-            const item = $scope.lists.find(function(exam){
+            const item = $scope.lists.find(function (exam) {
                 return exam.ep_id === Number(id);
             })
-            if(item.status === 1) {
+            if (item.status === 1) {
                 // 未发布 --> 发布
                 console.log('发布')
                 send(id)
-            } 
+            }
         }
 
         // 删除
@@ -139,11 +139,120 @@ app.controller('myCtrl',
             window.history.go(-1);
         }
 
-        $scope.isNoSendStatus = function(id) {
-            const item = $scope.lists.find(function(exam){
+        $scope.isNoSendStatus = function (id) {
+            const item = $scope.lists.find(function (exam) {
                 return exam.ep_id === Number(id);
             })
             return item.status === 1
+        }
+
+        //选择员工
+        $scope.noshitiClick = function (planId) {
+            $http.get("http://api.lpszzb.gov.cn/cadre?page=1&limit=10000")
+                .then(function (res) {
+                    console.log(res.data.rows)
+                    $scope.user = res.data.rows
+                    $scope.userLength = $scope.user.length
+                    getStudy(planId)
+                });
+        }
+
+        $scope.xuancheClick = function (id) {
+            console.log('start')
+            const item = $scope.selectedUserIdList.find(function (sItem) {
+                return sItem.user_id === id
+            })
+            if (item) {
+                // 有 item - remove
+                $scope.selectedUserIdList = $scope.selectedUserIdList.filter(function (sItem) {
+                    return sItem.user_id !== id
+                })
+            }
+            else { //没有 - 添加
+                $scope.selectedUserIdList.push({
+                    user_id: id
+                })
+            }
+            console.log('end')
+            console.log($scope.selectedUserIdList)
+        }
+
+        $scope.onshitiClick = function () {
+            //关联 user
+            addUser({
+                user_id: $scope.selectedUserIdList.map(function(item){
+                    return item.user_id
+                })
+            })
+        }
+
+        $scope.onCacel = function () {
+            window.location.href = 'examination_paper_list.html'
+        }
+
+
+
+        $scope.SelectAll = function(){
+            if($scope.isAllSelected){
+                //已经全选 -> 全不选
+                $scope.user = $scope.user.map(function (item) {
+                    item.isSelected = false
+                    return item
+                })
+                $scope.selectedUserIdList = []
+            }
+            else {
+                $scope.user = $scope.user.map(function (item) {
+                    item.isSelected = true
+                    return item
+                })
+                $scope.selectedUserIdList = $scope.user
+            }
+            $scope.isAllSelected = !$scope.isAllSelected
+        }
+
+        //员工
+        function addUser(data) {
+            console.log('add User')
+            var url = 'http://api.lpszzb.gov.cn/exam/' + $scope.xubangdaingId +'/user'
+            console.log(url)
+            console.log(data)
+            $http({
+                method: 'post',
+                url,
+                data,
+                // headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            }).success(function (req) {
+                window.location.href = 'examination_paper_list.html'
+            })
+        }
+
+        function getStudy(planId) {
+            console.log('getStudy by planId')
+            $http.get("http://api.lpszzb.gov.cn/exam/" + planId + "/user?limit=10000")
+                .then(function (res) {
+                    // alert(JSON.stringify(res.data))
+                    $scope.selectedUserIdList = res.data.rows
+                    console.log($scope.selectedUserIdList)
+                    $scope.isAllSelected = $scope.selectedUserIdList.length === $scope.user.length
+                    $scope.xubangdaingId = planId
+                    $scope.user = $scope.user.map(function (item) {
+                        const selectedItem = $scope.selectedUserIdList.find(function (sItem) {
+                            return sItem.user_id === item.user_id
+                        })
+                        // console.log('-----')
+                        console.log(selectedItem)
+                        // console.log('-----')
+                        if (selectedItem) {
+                            item.isSelected = true
+                        }
+                        else {
+                            item.isSelected = false
+                        }
+                        return item
+                    })
+                    // console.log($scope.user)
+                })
         }
 
         //获取考试配置列表
