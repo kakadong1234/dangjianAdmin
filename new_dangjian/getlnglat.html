@@ -14,7 +14,7 @@
             overflow-y: auto;
             top: 80px;
             right: 10px;
-            width: 400px;
+            width: 580px;
         }
     </style>
     <script type="text/javascript"
@@ -30,7 +30,10 @@
                 <label>按关键字搜索：</label>
             </td>
             <td class="column2">
-                <label>左击获取经纬度：</label>
+                <label>经度：</label>
+            </td>
+            <td class="column3">
+                <label>纬度：</label>
             </td>
         </tr>
         <tr>
@@ -38,7 +41,10 @@
                 <input type="text" placeholder="请输入关键字进行搜索" id="tipinput">
             </td>
             <td class="column2">
-                <input type="text" readonly="true" id="lnglat">
+                <input type="text" readonly="true" id="lng">
+            </td>
+            <td class="column3">
+                <input type="text" readonly="true" id="lat">
             </td>
         </tr>
     </table>
@@ -52,7 +58,8 @@
     //为地图注册click事件获取鼠标点击出的经纬度坐标
     var clickEventListener = map.on('click', function(e) {
         console.log(e)
-        document.getElementById("lnglat").value = e.lnglat.getLng() + ',' + e.lnglat.getLat()
+        document.getElementById("lng").value = e.lnglat.getLng() 
+        document.getElementById("lat").value = e.lnglat.getLat()
     });
     var auto = new AMap.Autocomplete({
         input: "tipinput"
@@ -76,7 +83,8 @@
     AMap.event.addListener(placeSearch, "listElementClick", listItemSelect);
     function listItemSelect(e){
         console.log(e.data)
-        document.getElementById("lnglat").value = e.data.location.getLng() + ',' + e.data.location.getLat()
+        document.getElementById("lng").value = e.data.location.getLng()
+        document.getElementById("lat").value = e.data.location.getLat()
         placeSearch.clear()
         console.log(document.getElementById("tipinput"))
         document.getElementById("tipinput").value = e.data.name
