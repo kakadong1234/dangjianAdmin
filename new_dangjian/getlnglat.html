@@ -12,9 +12,9 @@
             background-color: white;
             max-height: 90%;
             overflow-y: auto;
-            top: 10px;
+            top: 80px;
             right: 10px;
-            width: 280px;
+            width: 400px;
         }
     </style>
     <script type="text/javascript"
@@ -78,6 +78,8 @@
         console.log(e.data)
         document.getElementById("lnglat").value = e.data.location.getLng() + ',' + e.data.location.getLat()
         placeSearch.clear()
+        console.log(document.getElementById("tipinput"))
+        document.getElementById("tipinput").value = e.data.name
     }
 </script>
 </body>
