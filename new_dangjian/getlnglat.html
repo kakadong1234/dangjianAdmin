@@ -6,8 +6,19 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
     <title>获取经纬度</title>
     <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
+    <style type="text/css">
+        #panel {
+            position: absolute;
+            background-color: white;
+            max-height: 90%;
+            overflow-y: auto;
+            top: 10px;
+            right: 10px;
+            width: 280px;
+        }
+    </style>
     <script type="text/javascript"
-            src="http://webapi.amap.com/maps?v=1.4.6&key=1e35a6cf9e70bc23928787dcfbb3c2f0&plugin=AMap.Autocomplete"></script>
+            src="http://webapi.amap.com/maps?v=1.4.6&key=1e35a6cf9e70bc23928787dcfbb3c2f0&plugin=AMap.Autocomplete,AMap.PlaceSearch"></script>
     <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
 </head>
 <body>
@@ -32,6 +43,7 @@
         </tr>
     </table>
 </div>
+<div id="panel"></div>
 <script type="text/javascript">
     var map = new AMap.Map("container", {
         resizeEnable: true,
@@ -39,17 +51,33 @@
     });
     //为地图注册click事件获取鼠标点击出的经纬度坐标
     var clickEventListener = map.on('click', function(e) {
+        console.log(e)
         document.getElementById("lnglat").value = e.lnglat.getLng() + ',' + e.lnglat.getLat()
     });
     var auto = new AMap.Autocomplete({
         input: "tipinput"
     });
+    var placeSearch = new AMap.PlaceSearch({
+        pageSize: 5,
+        pageIndex: 1,
+        map: map,
+        panel: "panel",
+        city:'六盘水'
+    })
     AMap.event.addListener(auto, "select", select);//注册监听，当选中某条记录时会触发
     function select(e) {
-        if (e.poi && e.poi.location) {
-            map.setZoom(15);
-            map.setCenter(e.poi.location);
-        }
+        console.log(e)
+        placeSearch.setCity(e.poi.adcode);
+        placeSearch.search(e.poi.name, function (status, result) {
+            // 查询成功时，result即对应匹配的POI信息
+            console.log(result)
+        })
+    }
+    AMap.event.addListener(placeSearch, "listElementClick", listItemSelect);
+    function listItemSelect(e){
+        console.log(e.data)
+        document.getElementById("lnglat").value = e.data.location.getLng() + ',' + e.data.location.getLat()
+        placeSearch.clear()
     }
 </script>
 </body>
