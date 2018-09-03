@@ -21,6 +21,14 @@ app.controller('myCtrl',
                 url: 'http://api.lpszzb.gov.cn/exam/result?ep_id=' + $scope.ep_id + '&user_id=xiaowei',
             }).success(function (res) {
                 console.log(res)
+                res.plan.eq2_all_score = res.plan.eq2_val * res.plan.eq2_cnt
+                res.plan.eq1_all_score = res.plan.eq1_val * res.plan.eq1_cnt
+                res.plan.ep_all_score = res.plan.eq2_all_score + res.plan.eq1_all_score
+                $scope.plan = res.plan
+                // 选择题
+                $scope.eq2_obj =  getEQ2(res.eq2_obj, res.eq2_ids.split(','))
+                // 判断题
+                $scope.eq1_obj =  getEQ1(res.eq1_obj, res.eq1_ids.split(','))
             })
 
         };
@@ -42,5 +50,41 @@ app.controller('myCtrl',
                     this[name] = value;
                 }
             }
+        }
+
+        function getEQ2(arr, sortArr) { //index, selectItem.selectIndex selectItem.selectValue
+            const list = []
+            for(let i=0; i<arr.length; i++){
+                console.log(sortArr[i])
+                const item = arr.find(function(q){
+                    return q.eq_id === Number(sortArr[i])
+                })
+                console.log(item)
+                item.index = i + 1;
+                item.selectItem = [
+                    { selectIndex: 'A',selectValue: item.op_a},
+                    { selectIndex: 'B',selectValue: item.op_b},
+                    { selectIndex: 'C',selectValue: item.op_c},
+                    { selectIndex: 'D',selectValue: item.op_d},
+                ]
+                list.push(item)
+            }
+            return list
+        }
+
+        function getEQ1(arr, sortArr) {
+            const list = []
+            for(let i=0; i<arr.length; i++){
+                const item = arr.find(function(q){
+                    return q.eq_id === Number(sortArr[i])
+                })
+                item.index = i + 1;
+                item.selectItem = [
+                    { selectIndex: 'A',selectValue: 'V'},
+                    { selectIndex: 'B',selectValue: 'X'}
+                ]
+                list.push(item)
+            }
+            return list
         }
     });

@@ -172,7 +172,25 @@
                             </div>
 
                             <div class="ibox-content">
-
+                                <div class="exam_title" style="font-size:18px">{{plan.ep_name}}</div>
+                                <div class="exam_score_time">(总分:{{plan.ep_all_score}}分, 考试时长:{{plan.ep_limit}}分钟 )</div>
+                                <div style="font-size:16px" ng-if="eq2_obj.length > 0"> 一. 选择题(每题{{plan.eq2_val}}分, 总共{{plan.eq2_all_score}}分)</div>
+                                <div ng-if="eq2_obj.length > 0" class="form-group" ng-repeat="x in eq2_obj">
+                                    <div> {{x.index}}.{{x.question}}</div> 
+                                    <div ng-repeat="q in x.selectItem">
+                                        {{q.selectIndex}}.{{q.selectValue}}
+                                    </div>
+                                    <div style="color: green"> 答案 {{x.answer}}</div> 
+                                </div>    
+                                <div style="font-size:16px"  ng-if="eq1_obj.length > 0 && eq2_obj.length == 0"> 一. 判断题(每题{{plan.eq1_val}}分, 总共{{plan.eq1_all_score}}分)</div>
+                                <div style="font-size:16px"  ng-if="eq1_obj.length > 0 && eq2_obj.length > 0"> 二. 判断题(每题{{plan.eq1_val}}分, 总共{{plan.eq1_all_score}}分)</div>
+                                <div ng-if="eq2_obj.length > 0" class="form-group" ng-repeat="y in eq1_obj">
+                                        <div> {{y.index}}.{{y.question}}</div> 
+                                        <!-- <div ng-repeat="q in y.selectItem">
+                                            {{q.selectIndex}}.{{q.selectValue}}
+                                        </div> -->
+                                        <div style="color: green" > 答案 {{y.answer}}</div> 
+                                </div>  
                             </div>
                         </div>
                     </div>
